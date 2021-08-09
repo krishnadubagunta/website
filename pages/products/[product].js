@@ -19,19 +19,23 @@ export default function Product({ product }) {
 
   const { title, asset: { url, height } } = product
 
-  return <Container maxWidth='lg'>
-    <Navbar />
-    <Box mx={4}>
-      <ViewportHeightComponent height={height}>
-        <Image
-          alt={title}
-          src={url}
-          objectFit='contain'
-          layout='fill'
-        />
-      </ViewportHeightComponent>
-    </Box>
-  </Container>
+  return <>
+    <Container maxWidth='xl'>
+      <Navbar />
+    </Container>
+    <Container maxWidth='lg'>
+      <Box mx={4}>
+        <ViewportHeightComponent height={height}>
+          <Image
+            alt={title}
+            src={url}
+            objectFit='contain'
+            layout='fill'
+          />
+        </ViewportHeightComponent>
+      </Box>
+    </Container>
+  </>
 }
 
 export async function getStaticProps({ params: { product: productId } }) {

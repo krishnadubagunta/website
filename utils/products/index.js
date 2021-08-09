@@ -27,7 +27,5 @@ export default async function Posts() {
     preview: true
   })
 
-  console.log(data)
-
   return data
 }

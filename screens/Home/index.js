@@ -6,27 +6,31 @@ import Link from 'next/link'
 import Navbar from "../../components/Navbar"
 
 export default function Home({ products }) {
-  return (<Container maxWidth='lg'>
-    <Navbar />
-    <Box m={4}>
-      <Masonry
-        items={products}
-        columnGutter={4}
-        columnWidth={450}
-        render={({data : { sys, asset, title }}) => {
-          const { url, height, width } = asset
-          return <Card
-              linkTo={`/products/${sys.id}`}
-              imageUrl={url}
-              height={height}
-              width={width}
-              title={title}
-              id={sys.id}
-            />
+  return (<>
+    <Container maxWidth='xl'>
+      <Navbar />
+    </Container>
+    <Container maxWidth='xl'>
+      <Box m={4}>
+        <Masonry
+          items={products}
+          columnGutter={4}
+          columnWidth={425}
+          render={({data : { sys, asset, title }}) => {
+            const { url, height, width } = asset
+            return <Card
+                linkTo={`/products/${sys.id}`}
+                imageUrl={url}
+                height={height}
+                width={width}
+                title={title}
+                id={sys.id}
+              />
+            }
           }
-        }
-      />
-    </Box>
-  </Container>
+        />
+      </Box>
+    </Container>
+  </>
   )
 }

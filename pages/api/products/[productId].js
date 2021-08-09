@@ -12,6 +12,8 @@ export default async function SingleProduct({ query: { productId } }, res) {
         title
         size
         url
+        height
+        width
       }
     }
   }`

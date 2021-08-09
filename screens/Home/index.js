@@ -1,6 +1,7 @@
 import Box from '@material-ui/core/Box'
 import Card from '../../components/Card'
 import { Masonry } from 'masonic'
+import Link from 'next/link'
 import Navbar from "../../components/Navbar"
 
 export default function Home({ products }) {
@@ -14,12 +15,14 @@ export default function Home({ products }) {
         render={({data : { sys, asset, title }}) => {
           const { url, height, width } = asset
           return <Card
-            imageUrl={url}
-            height={height}
-            width={width}
-            title={title}
-            id={sys.id}
-          />}
+              linkTo={`/products/${sys.id}`}
+              imageUrl={url}
+              height={height}
+              width={width}
+              title={title}
+              id={sys.id}
+            />
+          }
         }
       />
     </Box>

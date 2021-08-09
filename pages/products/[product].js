@@ -2,6 +2,8 @@ import { styled } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
 import Image from 'next/image'
 import Navbar from "../../components/Navbar"
+import getProducts from '../../utils/products'
+import getProduct from '../../utils/products/productId'
 
 const ViewportHeightComponent = styled('div')(({ height }) => ({
   position: 'relative',
@@ -32,8 +34,8 @@ export default function Product({ product }) {
 }
 
 export async function getStaticProps({ params: { product: productId } }) {
-  const data = await (await fetch(`${process.env.URI}/api/products/${productId}`)).json()
-  if(!data || !data.product) {
+  const { product } = await getProduct({ productId })
+  if(!product) {
     return {
       redirect: {
         destination: '/',
@@ -44,14 +46,14 @@ export async function getStaticProps({ params: { product: productId } }) {
 
   return {
     props: {
-      ...data
+      product
     },
     revalidate: 10,
   }
 }
 
 export async function getStaticPaths() {
-  const data = await (await fetch(`${process.env.URI}/api/products`)).json()
+  const data = await getProducts()
 
   return {
     paths: data.productCollection.items.map(({ sys: { id } }) => ({

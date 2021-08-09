@@ -1,6 +1,6 @@
-import ContentfulApi from "../../../utils/contentful"
+import ContentfulApi from "../contentful"
 
-export default async function SingleProduct({ query: { productId } }, res) {
+export default async function SingleProduct({ productId }) {
   const QUERY = `{
     product(id: "${productId}") {
       sys {
@@ -20,5 +20,5 @@ export default async function SingleProduct({ query: { productId } }, res) {
   const data = await ContentfulApi.client(QUERY, {
     reducer: ({ data, errors }) => ({ ...data, errors })
   })
-  return res.json(data)
+  return data
 }

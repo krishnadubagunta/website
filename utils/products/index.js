@@ -1,6 +1,6 @@
-import ContentfulApi from "../../../utils/contentful"
+import ContentfulApi from "../contentful"
 
-export default async function Posts(req, res) {
+export default async function Posts() {
   const QUERY = `{
     productCollection(preview: true, order: priority_ASC) {
       total
@@ -27,7 +27,5 @@ export default async function Posts(req, res) {
     preview: true
   })
 
-  return res.json({
-    ...data
-  })
+  return data
 }

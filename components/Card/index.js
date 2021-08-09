@@ -16,7 +16,8 @@ export default function Card({ imageUrl, id, title, children, height, width, lin
         }} 
         transition={{ duration: 2 }}
         initial='hidden'
-        animate='visible'>
+        animate='visible'
+      >
         <MaterialCard variant='outlined'>
           <CardMedia>
               <Image

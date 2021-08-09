@@ -8,7 +8,7 @@ import getProduct from '../../utils/products/productId'
 
 const ViewportHeightComponent = styled('div')(({ height }) => ({
   position: 'relative',
-  marginTop: '32px',
+  marginTop: '16px',
   width: '100%',
   height,
   maxHeight: '85vh'
@@ -24,7 +24,7 @@ export default function Product({ product }) {
       <Navbar />
     </Container>
     <Container maxWidth='lg'>
-      <Box mx={4}>
+      <Box>
         <ViewportHeightComponent height={height}>
           <Image
             alt={title}

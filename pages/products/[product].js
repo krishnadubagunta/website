@@ -1,5 +1,6 @@
 import { styled } from '@material-ui/core/styles'
 import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
 import Image from 'next/image'
 import Navbar from "../../components/Navbar"
 import getProducts from '../../utils/products'
@@ -18,7 +19,7 @@ export default function Product({ product }) {
 
   const { title, asset: { url, height } } = product
 
-  return <>
+  return <Container maxWidth='lg'>
     <Navbar />
     <Box mx={4}>
       <ViewportHeightComponent height={height}>
@@ -30,7 +31,7 @@ export default function Product({ product }) {
         />
       </ViewportHeightComponent>
     </Box>
-  </>
+  </Container>
 }
 
 export async function getStaticProps({ params: { product: productId } }) {

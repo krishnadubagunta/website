@@ -1,11 +1,12 @@
 import Box from '@material-ui/core/Box'
+import Container from '@material-ui/core/Container'
 import Card from '../../components/Card'
 import { Masonry } from 'masonic'
 import Link from 'next/link'
 import Navbar from "../../components/Navbar"
 
 export default function Home({ products }) {
-  return (<>
+  return (<Container maxWidth='lg'>
     <Navbar />
     <Box m={4}>
       <Masonry
@@ -26,6 +27,6 @@ export default function Home({ products }) {
         }
       />
     </Box>
-  </>
+  </Container>
   )
 }

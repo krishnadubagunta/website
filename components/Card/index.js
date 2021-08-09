@@ -5,28 +5,37 @@ import CardContent from '@material-ui/core/CardContent'
 import Flexbox from '../Flexbox'
 import Component from './component'
 import Link from 'next/link'
+import { motion } from 'framer-motion'
 
 export default function Card({ imageUrl, id, title, children, height, width, linkTo  }) {
-  return <Link href={linkTo}>
+  return <Link href={linkTo} passHref>
     <Component>
-      <MaterialCard variant='outlined'>
-        <CardMedia>
-            <Image
-              width={width}
-              height={height}
-              src={imageUrl}
-              alt={title}
-              layout='responsive'
-            />
-        </CardMedia>
-        {
-          children &&  <CardContent>
-          <Flexbox direction='column'>
-            { children }
-          </Flexbox>
-        </CardContent>
-        }
-      </MaterialCard>
+      <motion.div variants={{
+          visible: { opacity: 1 },
+          hidden: { opacity: 0 },
+        }} 
+        transition={{ duration: 2 }}
+        initial='hidden'
+        animate='visible'>
+        <MaterialCard variant='outlined'>
+          <CardMedia>
+              <Image
+                width={width}
+                height={height}
+                src={imageUrl}
+                alt={title}
+                layout='responsive'
+              />
+          </CardMedia>
+          {
+            children &&  <CardContent>
+            <Flexbox direction='column'>
+              { children }
+            </Flexbox>
+          </CardContent>
+          }
+        </MaterialCard>
+      </motion.div>
     </Component>
   </Link>
 }

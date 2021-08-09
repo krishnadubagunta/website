@@ -5,7 +5,7 @@ import AmpSocial from "../../components/Social"
 import Flexbox from "../../components/Flexbox"
 
 export default function Navbar() {
-  return <Box px={4}>
+  return <Box>
     <Flexbox direction='row' align='flex-end' secondaryAlign='space-between'>
       <Box mt={4}>
         <Link href='/' passHref>

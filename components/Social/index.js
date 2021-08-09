@@ -7,9 +7,9 @@ export default function SocialContainer({ social, description, href }) {
     <Link href={href} passHref>
       <Image
         src={`/${social}.png`}
-        width='45'
-        height='45'
-        layout='responsive'
+        width='30'
+        height='30'
+        layout='intrinsic'
         alt={description}
       />
     </Link>

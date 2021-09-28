@@ -3,8 +3,10 @@ import Box from '@material-ui/core/Box'
 import Container from '@material-ui/core/Container'
 import Image from 'next/image'
 import Navbar from "../../components/Navbar"
+import Typography from "@material-ui/core/Typography"
 import getProducts from '../../utils/products'
 import getProduct from '../../utils/products/productId'
+import Flexbox from '../../components/Flexbox'
 
 const ViewportHeightComponent = styled('div')(({ height }) => ({
   position: 'relative',
@@ -14,10 +16,14 @@ const ViewportHeightComponent = styled('div')(({ height }) => ({
   maxHeight: '85vh'
 }))
 
+const ItalicBody = styled(Typography)(() => ({
+  fontStyle: 'italic'
+}))
+
 export default function Product({ product }) {
   if(!product) return <></>
 
-  const { title, asset: { url, height } } = product
+  const { title, description, asset: { url, height } } = product
 
   return <>
     <Container maxWidth='xl'>
@@ -33,6 +39,11 @@ export default function Product({ product }) {
             layout='fill'
           />
         </ViewportHeightComponent>
+        <Flexbox secondaryAlign='center'>
+          <ItalicBody variant='body2' >
+            { description }
+          </ItalicBody>
+        </Flexbox>
       </Box>
     </Container>
   </>

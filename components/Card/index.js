@@ -21,6 +21,7 @@ export default function Card({ imageUrl, id, title, children, height, width, lin
         <MaterialCard variant='outlined'>
           <CardMedia>
               <Image
+                style={{ aspectRatio: 'attr(width) / attr(height)' }}
                 width={width}
                 height={height}
                 src={imageUrl}

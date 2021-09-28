@@ -14,8 +14,8 @@ export default function Home({ products }) {
       <Box m={4}>
         <Masonry
           items={products}
-          columnGutter={4}
-          columnWidth={475}
+          columnGutter={8}
+          columnWidth={400}
           render={({data : { sys, asset, title }}) => {
             const { url, height, width } = asset
             return <Card

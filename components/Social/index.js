@@ -6,13 +6,7 @@ export default function SocialContainer({ social, description, href }) {
   return <Component>
     <Link href={href} passHref>
       <a target='blank' rel='noopener'>
-        <Image
-          src={`/${social}.png`}
-          width='30'
-          height='30'
-          layout='intrinsic'
-          alt={description}
-        />
+        { social }
       </a>
     </Link>
   </Component>

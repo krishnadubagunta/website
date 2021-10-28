@@ -1,16 +1,18 @@
 import Head from 'next/head'
-import { ThemeProvider } from '@material-ui/core'
-import { StyledEngineProvider } from '@material-ui/core/styles'
+import { StyledEngineProvider, ThemeProvider } from '@mui/material/styles'
 import '../styles/globals.css'
 import { theme } from '../styles/theme'
-import { AnimatePresence } from 'framer-motion'
+import { AnimateSharedLayout } from 'framer-motion'
+import Container from '@mui/material/Container'
+import Navbar from "../components/Navbar"
 
 function MyApp({ Component, pageProps, router }) {
   return <>
-    <Head>      
+    <Head>
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="icon" href="/favicon.ico" />
       <link rel="manifest" href="/site.webmanifest" />
       <meta name="apple-mobile-web-app-title" content="- kd photography" />
       <meta name="application-name" content="- kd photography" />
@@ -21,9 +23,14 @@ function MyApp({ Component, pageProps, router }) {
     <div style={{ padding: '8px' }}>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
-          <AnimatePresence exitBeforeEnter>
+          <div className='flex justify-center my-2 bg-white'>
+            <div className='w-11/12 md:w-screen 2xl:w-11/12 z-50'>
+              <Navbar />
+            </div>
+          </div>
+          <AnimateSharedLayout initial={false} exitBeforeEnter>
             <Component {...pageProps} key={router.route} />
-          </AnimatePresence>
+          </AnimateSharedLayout>
         </ThemeProvider>
       </StyledEngineProvider>
     </div>

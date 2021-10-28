@@ -1,4 +1,4 @@
-import { styled } from '@material-ui/core/styles'
+import { styled } from '@mui/material/styles'
 
 export default styled('div')(({ direction = 'row', align = 'stretch', secondaryAlign = 'flex-start' }) => ({
   display: 'flex',

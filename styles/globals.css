@@ -5,3 +5,7 @@
 body {
   background-color: rgb(254, 253, 253);
 }
+
+.footer {
+  height: 75px;
+}

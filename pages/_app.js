@@ -5,6 +5,7 @@ import { theme } from '../styles/theme'
 import { AnimateSharedLayout } from 'framer-motion'
 import Container from '@mui/material/Container'
 import Navbar from "../components/Navbar"
+import Footer from "../components/Footer"
 
 function MyApp({ Component, pageProps, router }) {
   return <>
@@ -18,9 +19,9 @@ function MyApp({ Component, pageProps, router }) {
       <meta name="application-name" content="- kd photography" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <title>kd - photography</title>
+      <title>Sai Krishna Dubagunta</title>
     </Head>
-    <div style={{ padding: '8px' }}>
+    <div style={{ padding: 8 }}>
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <div className='flex justify-center my-2 bg-white'>
@@ -31,6 +32,7 @@ function MyApp({ Component, pageProps, router }) {
           <AnimateSharedLayout initial={false} exitBeforeEnter>
             <Component {...pageProps} key={router.route} />
           </AnimateSharedLayout>
+          <Footer />
         </ThemeProvider>
       </StyledEngineProvider>
     </div>

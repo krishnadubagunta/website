@@ -1,4 +1,3 @@
-import Home from '../screens/Home'
 import getProducts from '../utils/products'
 import Container from '@mui/material/Container'
 import Navbar from "../components/Navbar"

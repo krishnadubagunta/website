@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Home from '../screens/Home'
 import getProducts from '../utils/products'
 import ViewportHeightComponent from '../components/ViewportHeight'
 
@@ -22,8 +21,10 @@ export default function Index({ products }) {
       </span>
       <div className='z-0 bg-fixed bg-hero bg-center md:bg-right-top bg-no-repeat bg-cover md:bg-contain rounded h-screen md:w-1/2 w-screen' />
     </div>
-    <div className='mt-8 w-screen'>
-      <span className='w-screen text-center prose prose-2xl font-semibold'>Projects</span>
+    <div className='mt-8'>
+      <div className='w-screen text-center'>
+        <span className='prose prose-2xl font-semibold'>Projects</span>
+      </div>
     </div>
   </>
 }

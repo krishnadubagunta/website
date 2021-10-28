@@ -13,7 +13,7 @@ export default function Navbar() {
             variant='h4'
             component='strong'
           >
-            kd photography
+            kd - photography
           </Typography>
         </Link>
       </Box>

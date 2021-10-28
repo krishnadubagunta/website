@@ -16,7 +16,7 @@ function MyApp({ Component, pageProps, router }) {
       <meta name="application-name" content="- kd photography" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#ffffff" />
-      <title>- kd photography</title>
+      <title>kd - photography</title>
     </Head>
     <div style={{ padding: '8px' }}>
       <StyledEngineProvider injectFirst>

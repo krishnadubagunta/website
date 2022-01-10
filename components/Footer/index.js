@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 const Footer = () => {
-  return <div className='flex justify-center bg-gray-900 rounded px-6'>
-    <div className='footer w-full flex items-center justify-between text-gray-300 text-sm' >
+  return <div className='flex w-full bg-gray-900 rounded'>
+    <div className='footer w-full flex items-center justify-between px-6 text-gray-300 text-sm text-xs'>
       <span>Made with <span className='text-red-700'>♥</span> by Sai Krishna Dubagunta</span>
       <span>2020</span>
       <div className='flex'>

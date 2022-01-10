@@ -21,12 +21,12 @@ export default function Navbar({ invert }) {
 
   return <>
     <div className='flex items-center justify-between'>
-      <div className='ml-2'>
+      <div className='ml-2 z-40'>
         <Link href='/' passHref>
           <span className='text-3xl text-left font-bold antialiased'>kd</span>
         </Link>
       </div>
-      <div className='flex items-stretch pr-2'>
+      <div className='flex items-stretch pr-2 z-40'>
         {
           ['home', 'photography', 'resume'].map((pathSlug) => <div className='mx-1 md:mx-2' key={pathSlug}>
             <Link href={`/${pathSlug === 'home' ? '' : pathSlug}`} passHref shallow>

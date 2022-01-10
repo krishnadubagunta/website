@@ -13,8 +13,8 @@ import getProduct from '../utils/products/productId'
 import { motion } from 'framer-motion'
 
 export default function Photos({ products }) {
-  return  <>
-  </>
+  return  <div className='h-screen'>
+  </div>
 }
 
 export async function getStaticProps() {

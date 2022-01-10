@@ -25,13 +25,15 @@ function MyApp({ Component, pageProps, router }) {
       <StyledEngineProvider injectFirst>
         <ThemeProvider theme={theme}>
           <div className='flex justify-center my-2 bg-white'>
-            <div className='w-11/12 md:w-screen 2xl:w-11/12 z-50'>
+            <div className='w-11/12 z-50'>
               <Navbar />
             </div>
           </div>
-          <AnimateSharedLayout initial={false} exitBeforeEnter>
-            <Component {...pageProps} key={router.route} />
-          </AnimateSharedLayout>
+          <div className='h-auto'>
+            <AnimateSharedLayout initial={false} exitBeforeEnter>
+              <Component {...pageProps} key={router.route} />
+            </AnimateSharedLayout>
+          </div>
           <Footer />
         </ThemeProvider>
       </StyledEngineProvider>

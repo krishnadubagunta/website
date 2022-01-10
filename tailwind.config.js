@@ -17,7 +17,10 @@ module.exports = {
       },
       backgroundImage: {
         'hero': 'url(/images/web/hero.jpg)',
-      }
+      },
+      cursor: {
+        'zoom-in': 'zoom-in'
+      },
     },
   },
   variants: {

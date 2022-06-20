@@ -23,7 +23,7 @@ export default function Navbar({ invert }) {
     <div className='flex items-center justify-between'>
       <div className='ml-2 z-40'>
         <Link href='/' passHref>
-          <span className='text-3xl text-left font-bold antialiased'>kd</span>
+          <span className='text-3xl text-left font-bold antialiased'>Krishna Dubagunta</span>
         </Link>
       </div>
       <div className='flex items-stretch pr-2 z-40'>

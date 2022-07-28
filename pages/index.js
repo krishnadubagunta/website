@@ -1,7 +1,7 @@
+import axios from 'axios'
 import Markdown from 'react-markdown'
-import intro from '../files/intro.md'
 
-export default function Index() {
+export default function Index({ intromd }) {
 
   return <>
     <section className='my-6 md:flex md:justify-center'>      
@@ -21,16 +21,22 @@ export default function Index() {
     </section>
     <section className='my-6 md:flex md:justify-center'>
       <article className='prose dark:prose-invert prose-lg text-black-400'>
-        <h3 className='justify-center'>
-          Introduction
-        </h3>
         <Markdown>
-          { intro }
+          { intromd }
         </Markdown>
-        <p>
-          I'm a <strong>full stack developer</strong> with strong experience in object oriented programming focusing on DevX and UX
-        </p>
       </article>
     </section>
   </>
+}
+
+export async function getStaticProps() {
+  const response = await axios.get(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/intro`, {
+    responseType: 'text'
+  })
+
+  return {
+    props: {
+      intromd: response.data,
+    }
+  }
 }

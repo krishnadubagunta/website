@@ -1,8 +1,8 @@
 import { styled } from '@mui/material/styles'
 
-export default styled('div')(({ direction = 'row', align = 'stretch', secondaryAlign = 'flex-start' }) => ({
+export default styled('div')(({ direction = 'row', align = 'stretch', justifyContent = 'flex-start' }) => ({
   display: 'flex',
   alignItems: align,
-  justifyContent: secondaryAlign,
+  justifyContent: justifyContent,
   flexDirection: direction,
 }))

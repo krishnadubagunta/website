@@ -28,7 +28,7 @@ export default function Navbar({ invert }) {
       </div>
       <div className='flex items-stretch pr-2 z-40'>
         {
-          ['home', 'photography', 'resume'].map((pathSlug) => <div className='mx-1 md:mx-2' key={pathSlug}>
+          ['home', 'photography'].map((pathSlug) => <div className='mx-1 md:mx-2' key={pathSlug}>
             <Link href={`/${pathSlug === 'home' ? '' : pathSlug}`} passHref shallow>
               <a>
                 <span className={pathSlug==path ? 'font-normal' : 'font-light'}>{pathSlug}</span>

@@ -1,24 +1,35 @@
-import getProducts from '../utils/products'
-import Container from '@mui/material/Container'
-import Navbar from "../components/Navbar"
-import Box from '@mui/material/Box'
-import Card from '../components/Card'
-import Flexbox from '../components/Flexbox'
-import Image from 'next/image'
-import CancelIcon from '@mui/icons-material/Cancel'
-import Link from 'next/link'
-import Modal from 'react-modal'
-import ViewportHeightComponent from '../components/ViewportHeight'
-import getProduct from '../utils/products/productId'
-import { motion } from 'framer-motion'
+import getResume from '../utils/resume'
+import {useEffect, useRef} from 'react'
 
-export default function Photos({ products }) {
-  return  <div className='h-screen'>
-  </div>
+export default function Resume({ resumeUrl }) {
+  const viewer = useRef(null)
+
+  useEffect(() => {
+    import('@pdftron/webviewer').then(() => {
+      WebViewer(
+        {
+          path: '/webviewer/lib',
+          initialDoc: resumeUrl,
+        },
+        viewer.current,
+      )})
+  }, []);
+
+
+  return (
+    <div className='h-screen'>
+      <div className="webviewer" ref={viewer} />
+    </div>
+  )
 }
 
 export async function getStaticProps() {
+  const { fileCollection: { items } } = await getResume()
+  const [item] = items
+  const { fileUrl: { url } } = item
+
   return {
-    props: {}
+    props: { resumeUrl: url },
+    revalidate: 5000
   }
 }

@@ -1,4 +1,3 @@
-import Home from '../screens/Home'
 import getProducts from '../utils/products'
 import Container from '@mui/material/Container'
 import Navbar from "../components/Navbar"
@@ -9,12 +8,11 @@ import Image from 'next/image'
 import CancelIcon from '@mui/icons-material/Cancel'
 import Link from 'next/link'
 import Modal from 'react-modal'
-import ViewportHeightComponent from '../components/ViewportHeight'
 import getProduct from '../utils/products/productId'
 import { Masonry } from 'masonic'
 import { styled } from '@mui/material/styles'
 import { useRouter } from 'next/router'
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useMemo } from 'react'
 import { motion } from 'framer-motion'
 
 Modal.setAppElement('#__next')

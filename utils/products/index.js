@@ -23,7 +23,9 @@ export default async function Posts() {
   }`
 
   const data = await ContentfulApi.client(QUERY, {
-    reducer: ({ data, errors }) => ({  ...data, ...errors }),
+    reducer: ({ data, errors }) => {
+      return ({  ...data, ...errors })
+    },
     preview: true
   })
 

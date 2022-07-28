@@ -2,7 +2,6 @@ import { styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Container from '@mui/material/Container'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import Typography from "@mui/material/Typography"
 import getProducts from '../../utils/products'
 import getProduct from '../../utils/products/productId'
@@ -18,25 +17,25 @@ export default function Product({ product }) {
 
   const { title, description, asset: { url, height } } = product
 
-  return <>
-    <Container maxWidth='lg'>
+  return <Container maxWidth='lg'>
+    <Box>
+      <ViewportHeightComponent height={height}>
+        <Image
+          alt={title}
+          src={url}
+          objectFit='contain'
+          layout='fill'
+        />
+      </ViewportHeightComponent>
       <Box>
-        <ViewportHeightComponent height={height}>
-          <Image
-            alt={title}
-            src={url}
-            objectFit='contain'
-            layout='fill'
-          />
-        </ViewportHeightComponent>
         <Flexbox secondaryAlign='center'>
           <ItalicBody variant='body2' >
             { description }
           </ItalicBody>
         </Flexbox>
       </Box>
-    </Container>
-  </>
+    </Box>
+  </Container>
 }
 
 export async function getStaticProps({ params: { product: productId } }) {
@@ -59,10 +58,17 @@ export async function getStaticProps({ params: { product: productId } }) {
 }
 
 export async function getStaticPaths() {
-  const data = await getProducts()
+  const { productCollection } = await getProducts()
+
+  if (productCollection.total === 0) {
+    return {
+      paths: [],
+      fallback: true,
+    }
+  }
 
   return {
-    paths: data.productCollection.items.map(({ sys: { id } }) => ({
+    paths: productCollection.items.map(({ sys: { id } }) => ({
       params: {
         product: id,
       }

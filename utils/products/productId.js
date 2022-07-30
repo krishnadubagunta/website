@@ -18,7 +18,8 @@ export default async function SingleProduct({ productId }) {
     }
   }`
   const data = await ContentfulApi.client(QUERY, {
-    reducer: ({ data, errors }) => ({ ...data, errors })
+    reducer: ({ data, errors }) => ({ ...data, errors }),
+    preview: true
   })
   return data
 }

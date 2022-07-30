@@ -1,20 +1,12 @@
-import { styled } from '@material-ui/core/styles'
-import Box from '@material-ui/core/Box'
-import Container from '@material-ui/core/Container'
+import { styled } from '@mui/material/styles'
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
 import Image from 'next/image'
-import Navbar from "../../components/Navbar"
-import Typography from "@material-ui/core/Typography"
+import Typography from "@mui/material/Typography"
 import getProducts from '../../utils/products'
 import getProduct from '../../utils/products/productId'
 import Flexbox from '../../components/Flexbox'
-
-const ViewportHeightComponent = styled('div')(({ height }) => ({
-  position: 'relative',
-  marginTop: '16px',
-  width: '100%',
-  height,
-  maxHeight: '85vh'
-}))
+import ViewportHeightComponent from '../../components/ViewportHeight'
 
 const ItalicBody = styled(Typography)(() => ({
   fontStyle: 'italic'
@@ -25,28 +17,25 @@ export default function Product({ product }) {
 
   const { title, description, asset: { url, height } } = product
 
-  return <>
-    <Container maxWidth='xl'>
-      <Navbar />
-    </Container>
-    <Container maxWidth='lg'>
+  return <Container maxWidth='lg'>
+    <Box>
+      <ViewportHeightComponent height={height}>
+        <Image
+          alt={title}
+          src={url}
+          objectFit='contain'
+          layout='fill'
+        />
+      </ViewportHeightComponent>
       <Box>
-        <ViewportHeightComponent height={height}>
-          <Image
-            alt={title}
-            src={url}
-            objectFit='contain'
-            layout='fill'
-          />
-        </ViewportHeightComponent>
         <Flexbox secondaryAlign='center'>
           <ItalicBody variant='body2' >
             { description }
           </ItalicBody>
         </Flexbox>
       </Box>
-    </Container>
-  </>
+    </Box>
+  </Container>
 }
 
 export async function getStaticProps({ params: { product: productId } }) {
@@ -69,10 +58,10 @@ export async function getStaticProps({ params: { product: productId } }) {
 }
 
 export async function getStaticPaths() {
-  const data = await getProducts()
+  const { productCollection } = await getProducts()
 
   return {
-    paths: data.productCollection.items.map(({ sys: { id } }) => ({
+    paths: productCollection.items.map(({ sys: { id } }) => ({
       params: {
         product: id,
       }

@@ -58,8 +58,9 @@ export async function getStaticProps({ params: { product: productId } }) {
 }
 
 export async function getStaticPaths() {
-  const { productCollection } = await getProducts()
-  console.log(productCollection)
+  const data = await getProducts()
+  console.log(data)
+  const { productCollection } = data
   return {
     paths: productCollection.items.map(({ sys: { id } }) => ({
       params: {

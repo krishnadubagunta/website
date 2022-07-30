@@ -59,14 +59,7 @@ export async function getStaticProps({ params: { product: productId } }) {
 
 export async function getStaticPaths() {
   const { productCollection } = await getProducts()
-
-  if (productCollection.total === 0) {
-    return {
-      paths: [],
-      fallback: true,
-    }
-  }
-
+  console.log(productCollection)
   return {
     paths: productCollection.items.map(({ sys: { id } }) => ({
       params: {

@@ -13,7 +13,7 @@ export default function Resume({ resumeUrl }) {
         },
         viewer.current,
       )})
-  }, []);
+  }, [resumeUrl])
 
 
   return (

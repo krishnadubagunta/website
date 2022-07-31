@@ -30,13 +30,13 @@ export default function Index({ intromd }) {
 }
 
 export async function getStaticProps() {
-  const response = await axios.get(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/intro`, {
-    responseType: 'text'
+  const { data } = await axios.get(`http://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/intro`, {
+    responseType: 'json'
   })
 
   return {
     props: {
-      intromd: response.data,
+      intromd: data.introMdData,
     }
   }
 }

@@ -32,7 +32,7 @@ export default function Index({ intromd }) {
 
 export async function getStaticProps() {
   const introFiles = path.join(process.cwd(), 'files','intro.md')
-  const intromd = fs.readFile(introFiles, { encoding: 'utf-8' })
+  const intromd = fs.readFile(introFiles)
 
   return {
     props: {

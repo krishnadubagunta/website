@@ -21,7 +21,7 @@ export default function Navbar({ invert }) {
 
   return <>
     <div className='flex items-center justify-between'>
-      <div className='ml-2 z-40'>
+      <div className='ml-2 z-40 cursor-pointer'>
         <Link href='/' passHref>
           <span className='text-3xl text-left font-bold antialiased'>Krishna Dubagunta</span>
         </Link>

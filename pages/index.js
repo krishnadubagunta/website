@@ -34,6 +34,8 @@ export async function getStaticProps() {
     responseType: 'json'
   })
 
+  console.log(data)
+
   return {
     props: {
       intromd: data.introMdData,

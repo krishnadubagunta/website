@@ -31,7 +31,7 @@ export default function Index({ intromd }) {
 }
 
 export async function getStaticProps() {
-  const intromd = fs.readFileSync(path.resolve(__dirname, 'files/intro.md'), { encoding: 'utf-8' })
+  const intromd = fs.readFileSync('../files/intro.md', { encoding: 'utf-8' })
 
   return {
     props: {

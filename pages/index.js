@@ -32,10 +32,11 @@ export default function Index({ intromd }) {
 export async function getStaticProps() {
   const response = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/intro`)
   console.log(JSON.stringify(response))
+  console.log((await response.json()))
 
   return {
     props: {
-      intromd: data.introMdData,
+      intromd: (await response.json()),
     }
   }
 }

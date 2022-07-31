@@ -40,11 +40,12 @@ export default function Product({ product }) {
 
 export async function getStaticProps({ params: { product: productId } }) {
   const { product } = await getProduct({ productId })
+
   if(!product) {
     return {
       redirect: {
-        destination: '/',
-        permanent: false,
+        destination: '/photography',
+        permanent: true,
       },
     }
   }

@@ -1,4 +1,5 @@
-import axios from 'axios'
+import * as fs from 'fs'
+import path from 'path'
 import Markdown from 'react-markdown'
 
 export default function Index({ intromd }) {
@@ -30,13 +31,11 @@ export default function Index({ intromd }) {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(`https://${process.env.NEXT_PUBLIC_VERCEL_URL}/api/intro`)
-  console.log(JSON.stringify(response))
-  console.log((await response.json()))
+  const intromd = fs.readFileSync(path.resolve(__dirname, 'files/intro.md'), { encoding: 'utf-8' })
 
   return {
     props: {
-      intromd: (await response.json()),
+      intromd,
     }
   }
 }

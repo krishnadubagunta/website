@@ -17,4 +17,7 @@ const TimelineLeft = ({ children, title }) => <div className="flex flex-row-reve
               </div>
             </div>
 
+
+TimelineLeft.displayName = 'TimelineLeft'
+
 export default TimelineLeft

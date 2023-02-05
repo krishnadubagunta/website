@@ -1,6 +1,7 @@
 import * as fs from 'fs'
 import path from 'path'
 import Markdown from 'react-markdown'
+import Layout from '../components/Layout'
 
 export default function Index({ intromd }) {
 
@@ -18,10 +19,10 @@ export default function Index({ intromd }) {
           Landscape Photographer
         </span>
       </span>
-      <div className='z-0 bg-fixed bg-hero bg-center md:bg-right-top bg-no-repeat bg-cover md:bg-contain rounded h-screen md:w-1/2 w-screen' />
+      <div className='bg-fixed bg-hero bg-center md:bg-right-top bg-no-repeat bg-cover md:bg-contain rounded h-screen md:w-1/2 w-screen' />
     </section>
     <section className='my-6 md:flex md:justify-center'>
-      <article className='prose dark:prose-invert prose-lg text-black-400'>
+      <article className='prose prose-lg text-black-400'>
         <Markdown>
           { intromd }
         </Markdown>
@@ -40,3 +41,7 @@ export async function getStaticProps() {
     }
   }
 }
+
+Index.getLayout = (page) => (<Layout>
+  { page }
+</Layout>)

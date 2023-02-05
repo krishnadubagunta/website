@@ -1,8 +1,7 @@
-import { styled } from '@mui/material/styles'
+const Flexbox = ({ children }) => (<div className='flex'>
+  { children }
+</div>)
 
-export default styled('div')(({ direction = 'row', align = 'stretch', justifyContent = 'flex-start' }) => ({
-  display: 'flex',
-  alignItems: align,
-  justifyContent: justifyContent,
-  flexDirection: direction,
-}))
+Flexbox.displayName = 'Flexbox'
+
+export default Flexbox

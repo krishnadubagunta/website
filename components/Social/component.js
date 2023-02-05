@@ -1,6 +1,7 @@
-import { styled } from '@mui/material/styles'
+const Social = ({ children }) => (<div className="cursor-pointer ml-8 text-white">
+  { children }
+</div>)
 
-export default styled('div')(() => ({
-  marginLeft: 24,
-  cursor: 'pointer'
-}))
+Social.displayName = 'Social'
+
+export default Social

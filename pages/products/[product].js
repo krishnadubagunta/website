@@ -1,24 +1,16 @@
-import { styled } from '@mui/material/styles'
-import Box from '@mui/material/Box'
-import Container from '@mui/material/Container'
 import Image from 'next/image'
-import Typography from "@mui/material/Typography"
 import getProducts from '../../utils/products'
 import getProduct from '../../utils/products/productId'
 import Flexbox from '../../components/Flexbox'
 import ViewportHeightComponent from '../../components/ViewportHeight'
-
-const ItalicBody = styled(Typography)(() => ({
-  fontStyle: 'italic'
-}))
 
 export default function Product({ product }) {
   if(!product) return <></>
 
   const { title, description, asset: { url, height } } = product
 
-  return <Container maxWidth='lg'>
-    <Box>
+  return <div>
+    <div>
       <ViewportHeightComponent height={height}>
         <Image
           alt={title}
@@ -27,15 +19,15 @@ export default function Product({ product }) {
           layout='fill'
         />
       </ViewportHeightComponent>
-      <Box>
+      <div>
         <Flexbox secondaryAlign='center'>
-          <ItalicBody variant='body2' >
+          <p>
             { description }
-          </ItalicBody>
+          </p>
         </Flexbox>
-      </Box>
-    </Box>
-  </Container>
+      </div>
+    </div>
+  </div>
 }
 
 export async function getStaticProps({ params: { product: productId } }) {

@@ -7,36 +7,25 @@ const Footer = () => {
       <span>2022</span>
       <div className='flex'>
         <div className='mr-2'>
-          <Link href="https://twitter.com/dubaguntakrishn" passHref>
-            <a target='_blank'>
+          <Link href="https://twitter.com/dubaguntakrishn" passHref target="_blank">
               Twitter
-            </a>
           </Link>
         </div>
         <div className='mr-2'>
-          <Link href="https://facebook.com/LithiumsLife" passHref>
-            <a target='_blank'>
+          <Link href="https://facebook.com/LithiumsLife" passHref target="_blank">
               Facebook
-            </a>
           </Link>
         </div>
         <div className='mr-2'>
-          <Link href="https://linkedin.com/in/saikrishnadubaguntah" passHref>
-            <a target='_blank'>
+          <Link href="https://linkedin.com/in/saikrishnadubaguntah" passHref target="_blank">
               LinkedIn
-            </a>
-          </Link>
-        </div>
-        <div className='mr-2'>
-          <Link href="https://vydia.com" passHref>
-            <a target='_blank'>
-              Vydia
-            </a>
           </Link>
         </div>
       </div>
     </div>
   </div>
 }
+
+Footer.displayName = 'Footer'
 
 export default Footer

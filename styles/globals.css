@@ -17,3 +17,7 @@ body {
 .blur {
   filter: blur(3);
 }
+
+.icons {
+  width: 3rem;
+}

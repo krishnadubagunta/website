@@ -9,7 +9,6 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       fontFamily: {
@@ -21,6 +20,8 @@ module.exports = {
       },
       backgroundImage: {
         'hero': 'url(/images/web/hero.jpg)',
+        'twitter': 'url(/images/twitter.svg)',
+        'instagram': 'url(/images/instagram.svg)',
       },
       cursor: {
         'zoom-in': 'zoom-in'

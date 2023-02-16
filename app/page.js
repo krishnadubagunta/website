@@ -1,9 +1,10 @@
 import * as fs from 'fs'
 import path from 'path'
 import Markdown from 'react-markdown'
-import Layout from '../components/Layout'
 
-export default function Index({ intromd }) {
+export default function Index() {
+  const introFiles = path.join(process.cwd(), 'files','intro.md')
+  const intromd = fs.readFileSync(introFiles, { encoding: 'utf-8' })
 
   return <>
     <section className='my-6 md:flex md:justify-center'>      
@@ -30,18 +31,3 @@ export default function Index({ intromd }) {
     </section>
   </>
 }
-
-export async function getStaticProps() {
-  const introFiles = path.join(process.cwd(), 'files','intro.md')
-  const intromd = fs.readFileSync(introFiles, { encoding: 'utf-8' })
-
-  return {
-    props: {
-      intromd,
-    }
-  }
-}
-
-Index.getLayout = (page) => (<Layout>
-  { page }
-</Layout>)

@@ -2,7 +2,7 @@ import ContentfulApi from "../contentful"
 
 export default async function Products(cameraType) {
   const QUERY = `{
-    productCollection(preview: true, where: { category: "${cameraType}" }, order: priority_ASC) {
+    productCollection(preview: true, order: priority_ASC) {
       total
       items {
         id
@@ -16,7 +16,7 @@ export default async function Products(cameraType) {
         asset {
           title
           size
-          url
+          url(transform: { format: WEBP })
           height
           width
         }
@@ -28,8 +28,6 @@ export default async function Products(cameraType) {
     reducer: ({ data, errors }) => ({  ...data, ...errors }),
     preview: true
   })
-
-  console.log("DDAAATTTAA", data)
 
   return data
 }

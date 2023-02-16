@@ -8,7 +8,16 @@ const WithLink = ({ as, href, children }) => <Link as={as} href={href} passHref 
 
 WithLink.displayName = 'WithLink'
 
-export default function Card({ imageUrl, id, title, description, height, width, href, as }) {
+export default function Card({ product, id, href, as }) {
+  const {
+    asset: {
+      url: imageUrl,
+      height,
+      width
+    },
+    title,
+    description
+  } = product
   const component = <div className='aspect-w-1 aspect-h-1 w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-w-7 xl:aspect-h-8'>
     {
       imageUrl && <Image

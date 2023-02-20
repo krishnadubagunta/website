@@ -4,7 +4,7 @@ import uniq from 'lodash/uniq'
 import getCameraTypes from '../../utils/products/cameraTypes'
 
 export default function Sidebar() {
-    const [types, setTypes] = useState([])
+    
 
     useEffect(() => {
         getCameraTypes().then(({ productCollection }) => {

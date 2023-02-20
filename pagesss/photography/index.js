@@ -23,7 +23,36 @@ export default function Photos({ products }) {
 }
 
 export async function getStaticProps() {
-  const data = await getProducts()
+  const QUERY = `{
+    productCollection(preview: true, order: priority_ASC) {
+      total
+      items {
+        id
+        sys {
+          id
+        }
+        title
+        description
+        category
+        cameraType
+        asset {
+          title
+          size
+          url(transform: { format: WEBP })
+          height
+          width
+        }
+      }
+    }
+  }`
+
+  const data = await fetch('/api/contentfulapi', {
+    method: 'POST',
+    body: JSON.stringify({
+      query: QUERY,
+      preview: false
+    })
+  })
 
   return {
     props: {
@@ -31,11 +60,4 @@ export async function getStaticProps() {
     },
     revalidate: 10,
   }
-}
-
-Photos.getLayout = (page) => {
-    return (<Layout>
-      <Sidebar />
-      { page }
-    </Layout>)
 }

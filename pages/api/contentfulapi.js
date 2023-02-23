@@ -1,4 +1,4 @@
-export default async function ({ body }, res) {
+export default async function ContentfulApi({ body }, res) {
     const { query, preview } = JSON.parse(body)
     const QUERY_ENDPOINT = `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/environments/development`
 

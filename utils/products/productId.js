@@ -9,9 +9,12 @@ export default async function SingleProduct({ productId }) {
       title
       description
       asset {
+        sys {
+          id
+        }
         title
         size
-        url
+        url(transform: { format: WEBP, quality: 100 })
         height
         width
       }

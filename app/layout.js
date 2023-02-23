@@ -1,15 +1,20 @@
 import '../styles/globals.css';
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import getCameraTypes from '../utils/products/cameraTypes'
 
-export default function Layout({ children }) {
+export default async function Layout({ children }) {
+    const cameraTypes = await getCameraTypes()
+
     return <html lang="en">
-        <body>
-            <section>
-                <Navbar />
+        <body className='h-screen flex flex-col'>
+            <header className='sticky top-0 z-40'>
+                <Navbar cameraTypes={cameraTypes} />
+            </header>
+            <main className='flex-1 z-0'>
                 { children }
-                <Footer />
-            </section>
+            </main>
+            <Footer />
         </body>
     </html>
 }

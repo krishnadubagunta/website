@@ -1,21 +1,23 @@
-'use client';
-import { useEffect, useState } from 'react'
-import uniq from 'lodash/uniq'
+import Link from '../Link';
 import getCameraTypes from '../../utils/products/cameraTypes'
+import capitalize from 'lodash/capitalize';
+import { useMemo } from 'react';
 
-export default function Sidebar() {
-    
+export default async function Sidebar({ cameraType }) {
+    const types = await getCameraTypes()
 
-    useEffect(() => {
-        getCameraTypes().then(({ productCollection }) => {
-            setTypes(uniq(productCollection.items.map(({ cameraType }) => cameraType)))
-        })
-    }, [types, setTypes])
+    const typesElements = types.map((path) => <Link
+        className={`${path === cameraType ? 'font-normal' : 'font-light'}`}
+        key={path}
+        href={`/photography/${path}`}
+    >
+        { capitalize(path) }
+    </Link>)
 
-    return <div className='flex-col'>
-            {
-                types.map((cameraType) => <h1 key={cameraType}>{ cameraType }</h1>)
-            }
+
+    return <div className='my-8 ml-8 sticky top-1'>
+        <div className=''>
+            { typesElements }
         </div>
-
+    </div>
 }

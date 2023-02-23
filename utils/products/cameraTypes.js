@@ -1,3 +1,4 @@
+import uniq from "lodash/uniq"
 import ContentfulApi from "../contentful"
 
 export default async function CameraTypes() {
@@ -6,18 +7,16 @@ export default async function CameraTypes() {
       total
       items {
         id
-        title
-        description
         category
         cameraType
       }
     }
   }`
 
-  const data = await ContentfulApi.client(QUERY, {
+  const { productCollection: { items }} = await ContentfulApi.client(QUERY, {
     reducer: ({ data, errors }) => ({  ...data, ...errors }),
     preview: true
   })
 
-  return data
+  return uniq(items.map(({ cameraType }) => cameraType))
 }

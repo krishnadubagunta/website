@@ -11,6 +11,6 @@ export default async function ({ body }, res) {
         body: JSON.stringify({ query })
     })
     const data = await request.json()
-    console.log(data)
+
     res.json(data)
 }

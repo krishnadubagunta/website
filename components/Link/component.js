@@ -1,4 +1,4 @@
-const Link = ({ children }) => <div className='cursor-pointer'>{ children }</div>
+const Link = ({ children, className }) => <div className={`${className} cursor-pointer`}>{ children }</div>
 
 Link.displayName = 'Link'
 

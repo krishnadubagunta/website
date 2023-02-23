@@ -13,7 +13,7 @@ export default function Head() {
         <meta name="msapplication-TileColor" content="#111827" />
         <meta name="theme-color" content="#111827" />
         <script async src="/fontawesome/js/brands.js"></script>
-        <script async src="/fontawesome/js/solid.js"></script>
+        <script async src="/fontawesome/js/regular.js"></script>
         <script async src="/fontawesome/js/fontawesome.js"></script>
     </>
 }

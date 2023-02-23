@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
 const Footer = () => {
-  return <div className='flex w-full bg-gray-900 rounded'>
-    <div className='footer w-full flex items-center justify-between px-6 text-gray-300 text-sm text-xs'>
+  return <footer className='bg-gray-900'>
+    <div className='footer flex flex-col sm:flex-row items-center justify-between py-1 px-6 text-gray-300 text-sm text-xs'>
       <span>Made with <span className='text-red-700'>♥</span> by Sai Krishna Dubagunta</span>
       <span>2022</span>
       <div className='flex'>
@@ -23,7 +23,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-  </div>
+  </footer>
 }
 
 Footer.displayName = 'Footer'

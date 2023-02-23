@@ -17,6 +17,7 @@ module.exports = {
       colors: {
         sky: colors.sky,
         cyan: colors.cyan,
+        amber: colors.amber
       },
       backgroundImage: {
         'hero': 'url(/images/web/hero.jpg)',

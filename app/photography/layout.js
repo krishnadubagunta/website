@@ -1,5 +1,5 @@
-import '../../../styles/globals.css';
-import Sidebar from '../../../components/Sidebar';
+import '../../styles/globals.css';
+import Sidebar from '../../components/Sidebar';
 
 export default function Layout({ children, params }) {
     return <section className='flex flex-col h-full overflow-auto'>

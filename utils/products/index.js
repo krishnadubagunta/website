@@ -1,6 +1,6 @@
 import ContentfulApi from "../contentful"
 
-export default async function Products(cameraType) {
+export default async function Products(cameraType, options) {
     const QUERY = `{
         productCollection(preview: true, order: priority_ASC, where: {
             OR: [
@@ -33,7 +33,8 @@ export default async function Products(cameraType) {
     
       const { productCollection: { items }} = await ContentfulApi.client(QUERY, {
         reducer: ({ data, errors }) => ({  ...data, ...errors }),
-        preview: true
+        preview: true,
+        ...options
       })
 
     return items

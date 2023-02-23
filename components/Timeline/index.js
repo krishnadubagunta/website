@@ -4,4 +4,6 @@ const Timeline = ({ children }) => {
     </div>)
 }
 
+Timeline.displayName = 'Timeline'
+
 export default Timeline

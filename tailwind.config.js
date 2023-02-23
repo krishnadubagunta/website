@@ -4,8 +4,11 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
   mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
-  darkMode: false,
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -14,9 +17,12 @@ module.exports = {
       colors: {
         sky: colors.sky,
         cyan: colors.cyan,
+        amber: colors.amber
       },
       backgroundImage: {
         'hero': 'url(/images/web/hero.jpg)',
+        'twitter': 'url(/images/twitter.svg)',
+        'instagram': 'url(/images/instagram.svg)',
       },
       cursor: {
         'zoom-in': 'zoom-in'
@@ -28,5 +34,6 @@ module.exports = {
   },
   plugins: [
     require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
   ],
 }

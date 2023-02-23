@@ -17,4 +17,6 @@ const TimelineRight = ({ children, title }) => <div className="flex md:contents"
               </div>
             </div>
 
+TimelineRight.displayName = 'TimelineRight'
+
 export default TimelineRight

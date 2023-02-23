@@ -7,7 +7,8 @@ export default class ContentfulApi {
         Authorization: `Bearer ${preview ? process.env.NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN : process.env.NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN}`,
         "Content-Type": "application/json"
       },
-      body: JSON.stringify({ query })
+      body: JSON.stringify({ query }),
+      cache: 'force-cache'
     }
   }
 

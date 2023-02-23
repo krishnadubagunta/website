@@ -1,5 +1,5 @@
-import { styled } from '@mui/material/styles'
+const Link = ({ children, className }) => <div className={`${className} cursor-pointer`}>{ children }</div>
 
-export default styled('div')(() => ({
-  cursor: 'pointer'
-}))
+Link.displayName = 'Link'
+
+export default Link

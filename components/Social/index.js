@@ -1,13 +1,10 @@
 import Component from './component'
-import Image from 'next/image'
 import Link from 'next/link'
 
-export default function SocialContainer({ social, description, href }) {
+export default function SocialContainer({ children, href }) {
   return <Component>
-    <Link href={href} passHref>
-      <a target='blank' rel='noopener'>
-        { social }
-      </a>
+    <Link href={href} passHref target='blank' rel='noopener'>
+        { children }
     </Link>
   </Component>
 }

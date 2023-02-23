@@ -1,31 +1,40 @@
 import ContentfulApi from "../contentful"
 
-export default async function Posts() {
-  const QUERY = `{
-    productCollection(preview: true, order: priority_ASC) {
-      total
-      items {
-        id
-        sys {
-          id
+export default async function Products(cameraType) {
+    const QUERY = `{
+        productCollection(preview: true, order: priority_ASC, where: {
+            OR: [
+                {cameraType: "${cameraType}"},
+            ]
+        }) {
+          total
+          items {
+            id
+            sys {
+              id
+            }
+            title
+            priority
+            description
+            category
+            asset {
+              sys {
+                id
+              }
+              title
+              size
+              url(transform: { format: WEBP, quality: 20 })
+              height
+              width
+            }
+          }
         }
-        title
-        description
-        asset {
-          title
-          size
-          url
-          height
-          width
-        }
-      }
-    }
-  }`
+      }`
+    
+      const { productCollection: { items }} = await ContentfulApi.client(QUERY, {
+        reducer: ({ data, errors }) => ({  ...data, ...errors }),
+        preview: true
+      })
 
-  const data = await ContentfulApi.client(QUERY, {
-    reducer: ({ data, errors }) => ({  ...data, ...errors }),
-    preview: true
-  })
-
-  return data
+    return items
 }

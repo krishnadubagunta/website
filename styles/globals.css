@@ -6,6 +6,10 @@ body {
   background-color: rgb(254, 253, 253);
 }
 
+.bottom {
+  bottom: 0px;
+}
+
 .footer {
   height: 75px;
 }
@@ -16,4 +20,8 @@ body {
 
 .blur {
   filter: blur(3);
+}
+
+.icons {
+  width: 3rem;
 }

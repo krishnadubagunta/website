@@ -1,7 +1,7 @@
 import ContentfulApi from "../contentful"
 
 export default async function SingleProduct({ productId }) {
-  const QUERY = `{
+  const QUERY = `query {
     product(id: "${productId}") {
       sys {
         id
@@ -9,9 +9,12 @@ export default async function SingleProduct({ productId }) {
       title
       description
       asset {
+        sys {
+          id
+        }
         title
         size
-        url
+        url(transform: { format: WEBP, quality: 100 })
         height
         width
       }
@@ -19,7 +22,7 @@ export default async function SingleProduct({ productId }) {
   }`
   const data = await ContentfulApi.client(QUERY, {
     reducer: ({ data, errors }) => ({ ...data, errors }),
-    preview: true
+    preview: false
   })
   return data
 }

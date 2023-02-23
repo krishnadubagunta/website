@@ -2,6 +2,7 @@ import '../styles/globals.css';
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import getCameraTypes from '../utils/products/cameraTypes'
+import { AnalyticsWrapper } from '../components/Analytics';
 
 export default async function Layout({ children }) {
     const cameraTypes = await getCameraTypes()
@@ -15,6 +16,7 @@ export default async function Layout({ children }) {
                 { children }
             </main>
             <Footer />
+            <AnalyticsWrapper />
         </body>
     </html>
 }

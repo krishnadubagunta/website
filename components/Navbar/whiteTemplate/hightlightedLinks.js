@@ -19,13 +19,13 @@ export default function RoutedLinks({ cameraTypes }) {
   return <>
     <div className='mx-1 md:mx-2'>
       <Link href='/' passHref shallow>
-          <span className={`text-white ${path==='home' ? 'font-normal' : 'font-light'}`}>home</span>
+          <span className={`${path==='home' ? 'font-normal' : 'font-light'}`}>home</span>
       </Link>
     </div>
     <div className='mx-1 md:mx-2'>
     <Menu as="div" className="relative inline-block text-left">
         <div>
-          <Menu.Button className={`text-white ${path==='photography' ? 'font-normal' : 'font-light'}`}>
+          <Menu.Button className={`${path==='photography' ? 'font-normal' : 'font-light'}`}>
             photography
           </Menu.Button>
         </div>
@@ -40,7 +40,7 @@ export default function RoutedLinks({ cameraTypes }) {
           leaveTo="transform opacity-0 scale-95"
         >
           <Menu.Items className="absolute right-0 mt-2 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
-            <div className="px-1 py-1 ">
+            <div className="px-1 py-1 flex">
 
             {
             links.map((link) => (<Menu.Item key={link.href} as={Fragment}>

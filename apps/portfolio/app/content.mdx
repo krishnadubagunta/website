@@ -1,0 +1,75 @@
+import Image from "next/image";
+import SocialLink from 'kd-ui/ui/social';
+import { Github, Instagram, Linkedin } from 'lucide-react';
+
+<div className='lg:w-7/12 w-full text-sm'>
+    ### hello, I'm Krishna Dubagunta 👋🏼
+
+    a passionate software developer and avid landscape photographer.
+    With a deep-rooted love for both coding and capturing the beauty of nature through my lens,
+    I've found a unique harmony between two seemingly different worlds.
+
+    <div className='flex justify-center lg:hidden'>
+        <Image
+            className='rounded-full aspect-square object-cover brightness-110 dark:brightness-100'
+            width={350}
+            height={350}
+            alt='me at Dumbo, NYC.'
+            src="/images/me.jpg"
+        />
+    </div>
+
+
+    &nbsp;
+
+    #### **Software Development: Where Passion Meets Expertise**
+
+    I've honed my skills as a software developer, channeling my love for problem-solving and innovation
+    into creating practical and elegant solutions. Through formal education and hands-on experience,
+    I've cultivated a strong foundation in various programming languages, software development methodologies,
+    and cutting-edge technologies. With each project I undertake, I immerse myself in the intricacies of
+    code, always striving to create software that not only meets functional requirements but also
+    demonstrates my unwavering passion for the craft.
+
+    &nbsp;
+
+    <div className='flex flex-wrap'>
+        <SocialLink href='https://github.com/krishnadubagunta' username='@krishnadubagunta'>
+            <Github />
+        </SocialLink>
+
+        <SocialLink href='https://instagram.com/kridsphotography' username='@kridsphotography'>
+            <Instagram />
+        </SocialLink>
+
+        <SocialLink href='https://linkedin.com/in/saikrishnadubaguntah' username='Sai Krishna Dubagunta'>
+            <Linkedin />
+        </SocialLink>
+    </div>
+
+    &nbsp;
+
+    #### **Fueling Inspiration Through Photography**
+
+    Beyond the realm of coding, my adventurous spirit finds solace in landscape photography. By traversing
+    breathtaking vistas and capturing the essence of nature's wonders, I've discovered a wellspring of
+    inspiration that enriches my software development journey. The funds earned from my software development
+    endeavors power these photographic expeditions, creating a beautiful cycle where my creative pursuits
+    intertwine and fuel each other.
+
+    &nbsp;
+
+    Thank you for visiting my portfolio. I invite you to explore the fusion of my software development
+    expertise and landscape photography passion. Feel free to reach out if you're interested in collaborating,
+    discussing projects, or simply sharing the joy of creativity.
+
+</div>
+<div className='w-5/12 hidden lg:flex justify-center'>
+    <Image
+        className='rounded-full aspect-square object-cover brightness-110 dark:brightness-100'
+        width={350}
+        height={350}
+        alt='/'
+        src="/images/me.jpg"
+    />
+</div>

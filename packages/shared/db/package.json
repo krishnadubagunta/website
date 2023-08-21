@@ -1,0 +1,21 @@
+{
+  "name": "db",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "krishnadubagunta",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "lint": "eslint .",
+    "format": "eslint --fix --ext .ts,.tsx ."
+  },
+  "devDependencies": {
+    "eslint": "7.32.0",
+    "eslint-config-custom": "*"
+  },
+   "dependencies": {
+    "next-auth": "^4.23.1",
+    "mongodb": "^5.7.0",
+    "mongoose": "^7.4.3"
+   }
+}

@@ -1,6 +1,13 @@
 {
   "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
+    "build": {
+      "env": [
+        "CONTENTFUL_SPACE_ID",
+        "CONTENTFUL_DELIVERY_ACCESS_TOKEN",
+        "CONTENTFUL_PREVIEW_ACCESS_TOKEN"
+      ]
+    },
     "dev": {
       "cache": false
     }

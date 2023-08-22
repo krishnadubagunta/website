@@ -42,5 +42,5 @@ export default async function Page({
 export async function generateStaticParams() {
   const productIds = await ProductIds()
 
-  return productIds.map((productId: string) => ({ slug: productId }))
+  return productIds.map((productId: string) => ({ productId }))
 }

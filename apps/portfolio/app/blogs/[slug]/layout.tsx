@@ -20,7 +20,7 @@ export default function Layout(props: { children: React.ReactNode }) {
       </BackButton>
       <div className="md:flex-col md:w-2/12 hidden md:flex pt-6 sm:pr-2 lg:pr-4">
       <P>more articles ...</P>
-        <aside className="pt-3 space-y-3">
+        <aside className="pt-3 space-y-7">
           {allBlogs
             .sort((a, b) => {
               if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
@@ -36,8 +36,8 @@ export default function Layout(props: { children: React.ReactNode }) {
                 href={`/blogs/${post.slug}`}
               >
                 <div className={"flex flex-col"}>
-                  <Small className={clsx("pb-0.5 ", {
-                  "dark:text-white text-black dark:font-normal font-bold!important": pathname.endsWith(post.slug),
+                  <Small className={clsx("pb-2", {
+                  "dark:text-white text-black dark:font-normal font-bold": pathname.endsWith(post.slug),
                   "text-neutral-600 dark:text-neutral-400": !pathname.endsWith(post.slug)
                 })}>
                     {post.shortTitle}

@@ -10,7 +10,8 @@ export const metadata: Metadata = {
   title: {
     default: 'Blogs',
     template: '%s | Blogs | Krishna Dubagunta (KD)'
-  }
+  },
+  keywords: ["blog","adventure","tech","photography"]
 }
 
 export default function Page() {

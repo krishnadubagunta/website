@@ -81,22 +81,22 @@ CardFooter.displayName = "CardFooter"
 
 const PriceTag = ({ title, description, price}: {
   title: string,
-  description: string,
-  price: string
+  description?: string,
+  price?: string
 }) => (
   <div className="flex flex-col w-full relative pt-1 px-1">
     <div className="flex w-full items-start justify-between pr-1">
       <Small className="pb-1 font-normal text-ellipsis line-clamp-1">{title}</Small>
-      <Small className="text-neutral-500">{`$${price}`}</Small>
+      {price && <Small className="text-neutral-500">{`$${price}`}</Small>}
     </div>
     <div className="flex w-full items-center justify-between">
-      <Small className="text-xs text-neutral-500 text-ellipsis line-clamp-1">{description}</Small>
-      <Button
+      {description && <Small className="text-xs text-neutral-500 text-ellipsis line-clamp-1">{description}</Small>}
+      {price && <Button
         variant='link'
         className="text-petite-orchid-500 dark:text-petite-orchid-300 hover:text-petite-orchid-800 dark:hover:text-petite-orchid-400 px-2"
       >
         <ShoppingCart size={18} />
-      </Button>
+      </Button>}
     </div>
   </div>
 );
@@ -105,8 +105,8 @@ const CardImage = ({ src, alt, title, description, price, height, width }: {
   src: string,
   alt: string,
   title: string,
-  description: string,
-  price: string,
+  description?: string,
+  price?: string,
   height: number,
   width: number
 }) => (

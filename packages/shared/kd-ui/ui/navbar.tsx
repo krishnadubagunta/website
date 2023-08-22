@@ -78,7 +78,7 @@ export default function navbar({
                           {name}
                           {isActive ? (
                             <motion.div
-                              className="absolute rounded-md inset-0 bg-neutral-100 dark:bg-neutral-800 z-[-1]"
+                              className="absolute border-b-2 h-8 inset-0 border-neutral-300 dark:border-neutral-800 z-[-1]"
                               layoutId="navbar"
                               transition={{
                                 type: "spring",

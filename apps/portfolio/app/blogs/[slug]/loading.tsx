@@ -22,6 +22,16 @@ export default function Loading() {
         </div>
       </aside>
     </div>
+    <article className="p-4 flex flex-col rounded-sm w-full">
+        <div className='max-w-prose place-self-center'>
+        {
+            [1,2,3,4,5,6,7,8,9,10].map((_, i) => <div key={i} className='space-y-2'>
+              <Skeleton className={"h-3 w-96"} />
+              <Skeleton className="h-3 w-96" />
+            </div>)
+           }
+        </div>
+      </article>
   </section>);
   }
   

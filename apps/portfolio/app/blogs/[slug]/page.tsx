@@ -3,6 +3,7 @@ import { getMDXComponent } from 'next-contentlayer/hooks'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { mdxComponents } from '../../_lib/mdx-components'
+import Skeleton from 'kd-ui/ui/skeleton'
 
 export async function generateMetadata({
   params,
@@ -18,6 +19,7 @@ export async function generateMetadata({
     publishedAt: publishedTime,
     summary: description,
     image,
+    keywords,
     slug,
   } = post;
 
@@ -25,10 +27,12 @@ export async function generateMetadata({
     metadataBase: new URL(`https://krishnadubagunta.com`),
     title,
     description,
+    keywords,
     openGraph: {
       title: shortTitle,
       description,
       type: 'article',
+      authors: ["Krishna Dubagunta"],
       publishedTime,
       url: `https://krishnadubagunta.com/blogs/${slug}`,
       images: [
@@ -61,11 +65,13 @@ export default async function Blog({ params }: { params: { slug: string } }) {
         suppressHydrationWarning
         dangerouslySetInnerHTML={{ __html: JSON.stringify(post.structuredData) }}
       ></script>
-      <article className="bg-neutral-900 p-4 rounded-sm">
-        <MDXContent components={mdxComponents} />
+      <article className="flex flex-col rounded-sm w-full">
+        <div className='max-w-prose place-self-center'>
+          <MDXContent components={mdxComponents} /> 
+        </div>
       </article>
-    </section>
-    
+      <p className='prose text-center text-2xl md:pt-6 pt-2'>***</p>
+    </section>   
 }
 
 export async function generateStaticParams() {

@@ -3,6 +3,39 @@ import { CardImage } from "kd-ui/ui/card";
 import CameraFilters from "./_lib/components/cameraFilters";
 import Products from "./_lib/products";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.krishnadubagunta.com'),
+  title: 'Krishna Dubagunta (KD)',
+  description: 'Portfolio of Krishna Dubagunta | Software Engineer | Landscape Photographer',
+  icons: ['/favicon.ico'],
+  openGraph: {
+    type: 'profile',
+    gender: 'male',
+    images: [
+      {
+        url: "https://krishnaduabgunta/images/me.avif",
+        alt: 'Me near DUMBO in brooklyn just after snow',
+        type: 'image/avif'
+      }
+    ],
+    firstName: 'Sai Krishna',
+    lastName: 'Dubagunta'
+  },
+  keywords: 'portfolio,software-engineer,photographer,landscape-photographer',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+}
 
 function GalleryCard({ photo }: any) {
   return (

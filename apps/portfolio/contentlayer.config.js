@@ -20,10 +20,9 @@ const computedFields = {
       dateModified: doc.publishedAt,
       description: doc.summary,
       shortTitle: doc.shortTitle,
-      image: doc.image
-        ? `https://krishnadubagunta.com${doc.image}`
-        : `https://krishnadubagunta.com/og?title=${doc.title}`,
-      url: `https://krishnadubagunta.com/blog/${doc._raw.flattenedPath}`,
+      keywords: doc.keywords,
+      image: `https://krishnadubagunta.com${doc.image}`,
+      url: `https://krishnadubagunta.com/blogs/${doc._raw.flattenedPath}`,
       author: {
         '@type': 'Person',
         name: 'Krishna Dubagunta',
@@ -56,6 +55,9 @@ export const Blog = defineDocumentType(() => ({
     image: {
       type: 'string',
     },
+    keywords: {
+      type: 'string'
+    }
   },
   computedFields,
 }));

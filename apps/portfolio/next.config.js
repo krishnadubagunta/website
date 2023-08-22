@@ -54,7 +54,6 @@ const nextConfig = {
     domains: [
       "images.ctfassets.net",
       "downloads.ctfassets.net",
-      "localhost"
     ]
   },
   experimental: {

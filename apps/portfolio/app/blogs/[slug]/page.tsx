@@ -28,7 +28,7 @@ export async function generateMetadata({
     description,
     keywords,
     openGraph: {
-      title: shortTitle,
+      title,
       description,
       type: 'article',
       authors: ["Krishna Dubagunta"],

@@ -3,7 +3,6 @@ import { getMDXComponent } from 'next-contentlayer/hooks'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 import { mdxComponents } from '../../_lib/mdx-components'
-import Skeleton from 'kd-ui/ui/skeleton'
 
 export async function generateMetadata({
   params,

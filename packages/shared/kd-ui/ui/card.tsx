@@ -101,20 +101,22 @@ const PriceTag = ({ title, description, price}: {
   </div>
 );
 
-const CardImage = ({ src, alt, title, description, price }: {
+const CardImage = ({ src, alt, title, description, price, height, width }: {
   src: string,
   alt: string,
   title: string,
   description: string,
-  price: string
+  price: string,
+  height: number,
+  width: number
 }) => (
-  <div className="flex flex-col w-64 m-2">
+  <div className="flex flex-col w-64">
     <div className="overflow-clip">
       <Image
         src={src}
         className="rounded-md aspect-square object-cover hover:scale-105 transform-gpu motion-safe:transition-transform ease-in-out duration-500"
-        width={250}
-        height={300}
+        width={width}
+        height={height}
         alt={alt}
       />
     </div>

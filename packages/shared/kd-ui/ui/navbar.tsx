@@ -62,7 +62,7 @@ export default function navbar({
               <div className="flex pr-4">
                 {Object.entries(refs).map(
                   ([path, { name, matcher = [] }]) => {
-                    const isActive = !!find(matcher, (n) => n==pathname) || path === pathname;
+                    const isActive = !!find(matcher, (n) => pathname.match(n)) || path === pathname;
                     return (
                       <Link
                         key={path}

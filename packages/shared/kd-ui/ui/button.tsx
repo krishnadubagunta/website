@@ -4,7 +4,7 @@ import * as React from "react"
 import { Slot } from "@radix-ui/react-slot"
 import { signOut} from 'next-auth/react'
 import { cva, type VariantProps } from "class-variance-authority"
-
+import Link from 'next/link'
 import { cn } from "../lib/utils"
 import { ReactChildren } from './types'
 import clsx from 'clsx'
@@ -18,7 +18,7 @@ const buttonVariants = cva(
         destructive:
           "bg-destructive text-destructive-foreground hover:bg-destructive/90",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
+          "border border-input border-petite-orchid-500 bg-background hover:bg-petite-orchid-600 hover:text-accent-foreground",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-petite-orchid-300 dark:hover:bg-petite-orchid-900 dark:hover:opacity-80 hover:text-accent-foreground",
@@ -75,8 +75,8 @@ const SignOutButton = () => <Button variant={'ghost'} onClick={() => signOut({
 
 SignOutButton.displayName = 'SignOutButton'
 
-function SubmitButton() {
-
+function LinkButton({ href, children }: {href: string, children: React.ReactNode}) {
+  return <Link href={href} className={buttonVariants({ variant: 'outline' })}>{children}</Link>
 }
 
-export { Button, BackButton, SignOutButton, buttonVariants }
+export { Button, BackButton, SignOutButton, LinkButton,  buttonVariants }

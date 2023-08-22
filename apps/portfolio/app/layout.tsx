@@ -45,10 +45,12 @@ export default function RootLayout({
               "/": {
                 name: "Home",
               },
-              "/blog": {
+              "/blogs": {
+                matcher: ["/blogs?/*"],
                 name: "Blog",
               },
               "/gallery": {
+                matcher: ["/gallery?/*"],
                 name: "Gallery",
               },
             }}

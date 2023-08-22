@@ -19,8 +19,8 @@ export default function Layout(props: { children: React.ReactNode }) {
         <ArrowLeftIcon size={12} />&nbsp;<Small>Blogs</Small>
       </BackButton>
       <div className="md:flex-col md:w-2/12 hidden md:flex pt-6 sm:pr-2 lg:pr-4">
-        <P className="pb-1">more articles</P>
-        <aside>
+      <P>more articles ...</P>
+        <aside className="pt-3 space-y-3">
           {allBlogs
             .sort((a, b) => {
               if (new Date(a.publishedAt) > new Date(b.publishedAt)) {
@@ -30,11 +30,10 @@ export default function Layout(props: { children: React.ReactNode }) {
             })
             .map((post) => 
               {
-                console.log(pathname.endsWith(post.slug))
                 return <Link
-                className="flex items-start justify-start rounded-md pr-2 pt-2 pb-2 hover:dark:text-petite-orchid-300"
+                className="flex items-start justify-start rounded-md pr-2 hover:dark:text-petite-orchid-300"
                 key={post.slug}
-                href={`/blog/${post.slug}`}
+                href={`/blogs/${post.slug}`}
               >
                 <div className={"flex flex-col"}>
                   <Small className={clsx("pb-0.5 ", {
@@ -43,7 +42,7 @@ export default function Layout(props: { children: React.ReactNode }) {
                 })}>
                     {post.shortTitle}
                   </Small>
-                  <Small className="text-neutral-400 dark:text-neutral-700 text-xs!important">
+                  <Small className="text-neutral-400 dark:text-neutral-700 text-xs">
                     {formatDate(post.publishedAt)}
                   </Small>
                 </div>

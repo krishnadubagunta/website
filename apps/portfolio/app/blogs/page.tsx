@@ -3,6 +3,15 @@ import { allBlogs } from "contentlayer/generated";
 import Link from "next/link";
 import Small from "kd-ui/ui/typography/small";
 import { formatDate } from "../_lib/string";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  metadataBase: new URL('https://www.krishnadubagunta.com'),
+  title: {
+    default: 'Blogs',
+    template: '%s | Blogs | Krishna Dubagunta (KD)'
+  }
+}
 
 export default function Page() {
   return (
@@ -17,8 +26,8 @@ export default function Page() {
             return 1;
           })
           .map((post) => (
-            <div className="pb-4">
-              <Link href={`/blog/${post.slug}`} key={post.slug}>
+            <div className="pb-4" key={post.slug}>
+              <Link href={`/blogs/${post.slug}`}>
                 <div className="flex flex-col">
                   <Small className="pb-1 text-neutral-700 dark:text-neutral-300">{post.title}</Small>
                   <Small className="text-neutral-400 dark:text-neutral-600 text-xs">

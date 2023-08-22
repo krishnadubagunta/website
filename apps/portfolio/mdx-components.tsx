@@ -3,7 +3,7 @@ import H1 from 'kd-ui/ui/typography/h1'
 import H2 from 'kd-ui/ui/typography/h2'
 import H3 from 'kd-ui/ui/typography/h3'
 import H4 from 'kd-ui/ui/typography/h4'
-import P from 'kd-ui/ui/typography/P'
+import P from 'kd-ui/ui/typography/p'
  
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any

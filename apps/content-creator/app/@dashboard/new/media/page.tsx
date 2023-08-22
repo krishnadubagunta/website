@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import { useForm } from "react-hook-form";
 
 export default function MediaCreate() {
-  const { register, reset, handleSubmit } = useForm();
+  const { register, reset, handleSubmit,  } = useForm();
 
   async function onSubmit(formData: any) {
     console.warn("Requesting ... ")

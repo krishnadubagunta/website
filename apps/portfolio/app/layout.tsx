@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { ThemeProvider } from "kd-ui/ui/theme-provider";
 import Navbar from "kd-ui/ui/navbar";
+import { Analytics } from '@vercel/analytics/react'
 import clsx from "clsx";
 const inter = Inter({ subsets: ["latin"] });
 
@@ -59,6 +60,7 @@ export default function RootLayout({
             {children}
           </main>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );

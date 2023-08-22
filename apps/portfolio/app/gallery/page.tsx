@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     gender: 'male',
     images: [
       {
-        url: "https://krishnaduabgunta/images/me.avif",
+        url: "https://krishnaduabgunta.com/images/me.avif",
         alt: 'Me near DUMBO in brooklyn just after snow',
         type: 'image/avif'
       }

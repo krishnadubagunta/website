@@ -84,19 +84,19 @@ const PriceTag = ({ title, description, price}: {
   description?: string,
   price?: string
 }) => (
-  <div className="flex flex-col w-full relative pt-1 px-1">
+  <div className="flex flex-col w-full relative pt-1 px-1 space-y-2">
     <div className="flex w-full items-start justify-between pr-1">
-      <Small className="pb-1 font-normal text-ellipsis line-clamp-1">{title}</Small>
-      {price && <Small className="text-neutral-500">{`$${price}`}</Small>}
+      <Small className="text-ellipsis line-clamp-1 text-neutral-600 dark:text-neutral-300">{title}</Small>
+      {/* {price && <Small className="text-neutral-500">{`$${price}`}</Small>} */}
     </div>
     <div className="flex w-full items-center justify-between">
       {description && <Small className="text-xs text-neutral-500 text-ellipsis line-clamp-1">{description}</Small>}
-      {price && <Button
+      {/* {price && <Button
         variant='link'
         className="text-petite-orchid-500 dark:text-petite-orchid-300 hover:text-petite-orchid-800 dark:hover:text-petite-orchid-400 px-2"
       >
         <ShoppingCart size={18} />
-      </Button>}
+      </Button>} */}
     </div>
   </div>
 );
@@ -110,7 +110,7 @@ const CardImage = ({ src, alt, title, description, price, height, width }: {
   height: number,
   width: number
 }) => (
-  <div className="flex flex-col w-64">
+  <div className="flex flex-col w-64 space-y-2 lg:space-y-1">
     <div className="overflow-clip">
       <Image
         src={src}

@@ -54,6 +54,6 @@ export default function DarkmodeToggle() {
   }, [])
 
   return <Toggle size={'sm'} aria-label="dark-mode" defaultPressed={darkMode} onPressedChange={() => setTheme(oppositeTheme(resolvedTheme || 'dark'))}>
-      <ResolvedIcon className="h-4 w-4" />
+      <ResolvedIcon className="sm:h-5 sm:w-5 h-3 w-3 text-primary fill-none stroke-2" />
     </Toggle>
 }

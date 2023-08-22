@@ -36,7 +36,7 @@ export default function RootLayout({
       <body
         className={clsx(
           inter.className,
-          "antialiased sm:px-12 lg:px-20 px-4 py-6"
+          "sm:px-12 lg:px-20 px-4 py-6"
         )}
       >
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>

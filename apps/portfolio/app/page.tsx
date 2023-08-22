@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description: 'Portfolio of Krishna Dubagunta | Software Engineer | Landscape Photographer',
   icons: ['/favicon.ico'],
   openGraph: {
+    title: 'Krishna Dubagunta (KD)',
+    description: 'Portfolio of Krishna Dubagunta | Software Engineer | Landscape Photographer',
+    url: 'https://www.krishnadubagunta.com',
     type: 'profile',
     gender: 'male',
     images: [
@@ -18,6 +21,12 @@ export const metadata: Metadata = {
     ],
     firstName: 'Sai Krishna',
     lastName: 'Dubagunta'
+  },
+  twitter: {
+    title: 'Krishna Dubagunta (KD)',
+    description: 'Portfolio of Krishna Dubagunta | Software Engineer | Landscape Photographer',
+    card: 'summary_large_image',
+    creator: 'Krishna Dubagunta (KD)'
   },
   keywords: 'portfolio,software-engineer,photographer,landscape-photographer',
   robots: {

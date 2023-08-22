@@ -3,9 +3,9 @@
   "pipeline": {
     "build": {
       "env": [
-        "CONTENTFUL_SPACE_ID",
-        "CONTENTFUL_DELIVERY_ACCESS_TOKEN",
-        "CONTENTFUL_PREVIEW_ACCESS_TOKEN"
+        "NEXT_PUBLIC_CONTENTFUL_SPACE_ID",
+        "NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN",
+        "NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN"
       ]
     },
     "dev": {

@@ -5,6 +5,7 @@ import { LinkButton, buttonVariants } from "kd-ui/ui/button";
 import ReactMarkdown from "react-markdown";
 import { mdxComponents } from "../../_lib/mdx-components";
 import Link from "next/link";
+import ProductIds from "../_lib/productIds";
 
 export default async function Page({
   params: { productId },
@@ -36,4 +37,10 @@ export default async function Page({
       </div>
     </div>
   );
+}
+
+export async function generateStaticParams() {
+  const productIds = await ProductIds()
+
+  return productIds.map((productId: string) => ({ slug: productId }))
 }

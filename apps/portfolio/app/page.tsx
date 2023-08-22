@@ -44,8 +44,8 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <div className='pt-6 flex items-center'>
+    <article className='pt-6 flex items-center'>
       <Content />
-    </div>
+    </article>
   )
 }

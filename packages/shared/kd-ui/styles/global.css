@@ -3,6 +3,13 @@
 @tailwind utilities;
  
 @layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
   :root {
     --background: 0 0% 95%;
     --foreground: 20 14.3% 4.1%;
@@ -13,8 +20,8 @@
     --popover: 0 0% 95%;
     --popover-foreground: 20 14.3% 4.1%;
  
-    --primary: hsl(6, 48%, 60%);
-    --primary-foreground: 60 9.1% 97.8%;
+    --primary: 6 48% 60%;
+    --primary-foreground: 6 56% 89%;
  
     --secondary: 60 4.8% 90.9%;
     --secondary-foreground: 24 9.8% 10%;
@@ -45,8 +52,8 @@
     --popover: 20 14.3% 4.1%;
     --popover-foreground: 60 9.1% 97.8%;
  
-    --primary: 60 9.1% 97.8%;
-    --primary-foreground: 24 9.8% 10%;
+    --primary: 5 42% 42%;
+    --primary-foreground: 5 40% 35%;
  
     --secondary: 12 6.5% 15.1%;
     --secondary-foreground: 60 9.1% 97.8%;
@@ -63,14 +70,5 @@
     --border: 12 6.5% 15.1%;
     --input: 12 6.5% 15.1%;
     --ring: 24 5.7% 82.9%;
-  }
-}
- 
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

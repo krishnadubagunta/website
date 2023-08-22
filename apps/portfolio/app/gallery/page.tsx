@@ -4,6 +4,7 @@ import CameraFilters from "./_lib/components/cameraFilters";
 import Products from "./_lib/products";
 import Link from "next/link";
 import { Metadata } from "next";
+import Skeleton from "kd-ui/ui/skeleton";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.krishnadubagunta.com'),
@@ -74,7 +75,7 @@ export default async function Gallery({
       </div>
       <div
         id="image-gallery"
-        className="pt-6 flex flex-wrap space-x-4"
+        className="pt-6 grid grid-cols-1 place-self-center sm:place-self-start sm:grid-cols-2 xl:grid-cols-4 gap-2"
       >
         {photos.map((photo: any) => (
           <GalleryCard photo={photo} key={photo.sys.id} />

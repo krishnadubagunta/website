@@ -11,7 +11,7 @@ import { Button } from "./button";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./sheet";
 import { find } from 'lodash'
 
-export default function navbar({
+export default function Navbar({
   refs
 }: {
   refs: {
@@ -29,27 +29,29 @@ export default function navbar({
           <SheetTrigger asChild>
             <MenuIcon />
           </SheetTrigger>
-          <SheetContent side={'left'} className="w-[150px]">
-            {Object.entries(refs).map(
-              ([path, { name, matcher }]) => {
-                const isActive = !!find(matcher, (n) => n==pathname) || path === pathname;
-                return (
-                    <SheetClose asChild key={path}>
-                        <Link
-                            href={path}
-                            className={clsx(
-                            "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
-                            {
-                                "text-neutral-500 dark:text-neutral-400": !isActive,
-                            }
-                            )}
-                        >
-                            <Small className="relative py-1 px-2">{name}</Small>
-                        </Link>
-                    </SheetClose>
-                );
-              }
-            )}
+          <SheetContent side={'left'} className="w-[150px] space-y-2">
+            <div className="space-y-2">
+              {Object.entries(refs).map(
+                ([path, { name, matcher }]) => {
+                  const isActive = !!find(matcher, (n) => n==pathname) || path === pathname;
+                  return (
+                      <SheetClose asChild key={path}>
+                          <Link
+                              href={path}
+                              className={clsx(
+                              "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
+                              {
+                                  "text-neutral-500 dark:text-neutral-400": !isActive,
+                              }
+                              )}
+                          >
+                              <Small className="relative py-1 px-2">{name}</Small>
+                          </Link>
+                      </SheetClose>
+                  );
+                }
+              )}
+            </div>
             <hr className="border-neutral-400" />
             <DarkmodeToggle />
           </SheetContent>
@@ -78,7 +80,7 @@ export default function navbar({
                           {name}
                           {isActive ? (
                             <motion.div
-                              className="absolute border-b-2 h-8 inset-0 border-neutral-300 dark:border-neutral-800 z-[-1]"
+                              className="absolute border-b-2 h-8 inset-0 border-primary z-[-1]"
                               layoutId="navbar"
                               transition={{
                                 type: "spring",

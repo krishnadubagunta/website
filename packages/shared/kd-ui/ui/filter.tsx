@@ -6,8 +6,8 @@ import Small from "./typography/small";
 import { useRouter, usePathname, useSearchParams } from 'next/navigation'
 
 export default function Filter({ filterKey, filters }: { filterKey:string, filters: string[]}) {
-    const [filteredItems, setFilteredItems] = useState<string[]>([])
     const searchParams = useSearchParams()
+    const [filteredItems, setFilteredItems] = useState<string[]>(filterKey && (searchParams.get(filterKey)?.split(",")) || [])
     const router = useRouter()
     const pathname = usePathname()
 
@@ -34,7 +34,7 @@ export default function Filter({ filterKey, filters }: { filterKey:string, filte
                     setFilteredItems([ ...filteredItems, filter ])
                 }
             }} className={badgeVariants({ ...findFilter(filter) ? { variant: 'default' } : { variant: 'outline' } })}>
-                <Small>{filter}</Small>
+                <Small variant="light">{filter}</Small>
             </button>)
         }
     </div>

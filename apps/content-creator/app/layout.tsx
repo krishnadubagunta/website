@@ -66,8 +66,7 @@ export default async function RootLayout({
     </body>
   </html>
   }
-  return (
-    <html lang="en" suppressHydrationWarning>
+  return (<html lang="en" suppressHydrationWarning>
       <body
         className={clsx(
           inter.className,

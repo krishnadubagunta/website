@@ -1,4 +1,3 @@
-import TypographyH3 from "kd-ui/ui/typography/h3";
 import VideoPlayer from "../../_lib/components/VideoPlayer";
 
 export default function Page() {

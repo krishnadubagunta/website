@@ -1,0 +1,18 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "pipeline": {
+    "build": {
+      "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
+      "outputMode": "full",
+      "env": [
+        "NEXT_PUBLIC_CONTENTFUL_SPACE_ID",
+        "NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN",
+        "NEXT_PUBLIC_CONTENTFUL_PREVIEW_ACCESS_TOKEN"
+      ]
+    },
+    "dev": {
+      "cache": false
+    }
+  }
+}

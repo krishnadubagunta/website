@@ -15,7 +15,7 @@ export default function VideoPlayer({ url }: { url: string }) {
             url={url}
             controls={false}
             width={'auto'}
-            height={'fit'}
+            height={732}
             muted={mute}
             stopOnUnmount={true}
             playing={true}

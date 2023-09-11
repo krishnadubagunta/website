@@ -5204,6 +5204,7 @@
     "rehype-pretty-code" "^0.10.0"
     "rehype-slug" "^5.1.0"
     "remark-gfm" "^3.0.1"
+    "screenfull" "^6.0.2"
     "shadcn-ui" "^0.3.0"
     "shiki" "^0.14.3"
     "tailwind-merge" "^1.14.0"
@@ -5764,11 +5765,6 @@
   "version" "0.23.0"
   dependencies:
     "loose-envify" "^1.1.0"
-
-"screenfull@^6.0.2":
-  "integrity" "sha512-AQdy8s4WhNvUZ6P8F6PB21tSPIYKniic+Ogx0AacBMjKP1GUHN2E9URxQHtCusiwxudnCKkdy4GrHXPPJSkCCw=="
-  "resolved" "https://registry.npmjs.org/screenfull/-/screenfull-6.0.2.tgz"
-  "version" "6.0.2"
 
 "section-matter@^1.0.0":
   "integrity" "sha512-vfD3pmTzGpufjScBh50YHKzEu2lxBWhVEHsNGoEXmCmn2hKGfeNLYMzCJpe8cD7gqX7TJluOVpBkAequ6dgMmA=="

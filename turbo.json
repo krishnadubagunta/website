@@ -3,6 +3,7 @@
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
+      "outputs": [".next/**", "!.next/cache/**"],
       "env": [
         "NEXT_PUBLIC_CONTENTFUL_SPACE_ID",
         "NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN",

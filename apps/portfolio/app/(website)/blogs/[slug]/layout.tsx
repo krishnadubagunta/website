@@ -1,5 +1,5 @@
 "use client"
-import { formatDate } from "@/app/_lib/string";
+import { formatDate } from "@/app/(website)/_lib/string";
 import clsx from "clsx";
 import { allBlogs } from "contentlayer/generated";
 import { BackButton, Button } from "kd-ui/ui/button";

@@ -3,7 +3,7 @@ import Product from "../_lib/product";
 import Image from "next/image";
 import { LinkButton } from "kd-ui/ui/button";
 import ReactMarkdown from "react-markdown";
-import { mdxComponents } from "../../../_lib/mdx-components";
+import { mdxComponents } from "../../_lib/mdx-components";
 import ProductIds from "../_lib/productIds";
 import { Metadata } from "next";
 

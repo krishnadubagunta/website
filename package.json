@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "monorepo of my website versions and api and blogs",
   "scripts": {
+    "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
     "format": "turbo run format"
@@ -16,8 +17,8 @@
   "license": "MIT",
   "private": true,
   "packageManager": "yarn@1.22.19",
-  "dependencies": {},
   "devDependencies": {
+    "turbo": "^1.10.13",
     "turborepo": "^0.0.1"
   }
 }

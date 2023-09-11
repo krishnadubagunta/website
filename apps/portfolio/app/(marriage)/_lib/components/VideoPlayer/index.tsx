@@ -1,7 +1,6 @@
 "use client"
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import ReactPlayer from 'react-player/file'
-import screenfull from 'screenfull'
 
 export default function VideoPlayer({ url }: { url: string }) {
     const ref = useRef<ReactPlayer>(null)

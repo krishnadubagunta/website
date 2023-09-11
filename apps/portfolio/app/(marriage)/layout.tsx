@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: ReactNode }) {
       <body className={clsx(inter.className, "sm:px-12 lg:px-20 px-4 py-6 text-yellow-600 bg-neutral-900")}>
         <div className="flex w-full justify-center">
           <TypographyH1 paris>
-            Chidrupi & Krishna's wedding invitation
+            Chidrupi & Krishna&apos;s wedding invitation
           </TypographyH1>
         </div>
         { children }

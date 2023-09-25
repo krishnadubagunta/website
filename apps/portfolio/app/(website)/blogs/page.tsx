@@ -2,7 +2,7 @@ import H3 from "kd-ui/ui/typography/h3";
 import { allBlogs } from "contentlayer/generated";
 import Link from "next/link";
 import Small from "kd-ui/ui/typography/small";
-import { formatDate } from "../../_lib/string";
+import { formatDate } from "../_lib/string";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

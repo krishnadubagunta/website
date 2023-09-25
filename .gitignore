@@ -2,3 +2,6 @@ node_modules
 .next
 .contentlayer
 packages/shared/kd-ui/@/**/*
+.vercel
+.turbo
+.env.local

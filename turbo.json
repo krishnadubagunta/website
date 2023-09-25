@@ -1,9 +1,9 @@
 {
-  "$schema": "https://turbo.build/schema.json",
+  "$schema": "https://turborepo.org/schema.json",
   "pipeline": {
     "build": {
       "dependsOn": ["^build"],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**"],
+      "outputs": [".next/**", "!.next/cache/**"],
       "env": [
         "NEXT_PUBLIC_CONTENTFUL_SPACE_ID",
         "NEXT_PUBLIC_CONTENTFUL_DELIVERY_ACCESS_TOKEN",
@@ -11,10 +11,6 @@
       ]
     },
     "dev": {
-      "cache": false,
-      "persistent": true
-    },
-    "clean": {
       "cache": false
     }
   }

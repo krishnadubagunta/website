@@ -1,0 +1,7 @@
+yarn run v1.22.19
+$ next build
+- info Loaded env from /Volumes/Projects/website/apps/content-creator/.env.local
+- warn You have enabled experimental features (esmExternals, serverActions, serverComponentsExternalPackages) in next.config.js.
+- warn Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+
+- info Creating an optimized production build...

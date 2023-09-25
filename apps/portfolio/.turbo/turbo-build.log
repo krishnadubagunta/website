@@ -1,0 +1,13 @@
+yarn run v1.22.19
+$ next build
+- info Loaded env from /Volumes/Projects/website/apps/portfolio/.env.local
+- warn You have enabled experimental feature (mdxRs) in next.config.js.
+- warn Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+
+Generated 2 documents in .contentlayer
+- info Creating an optimized production build...
+thread '<unnamed>' panicked at 'internal error: entered unreachable code: expected footnote refereence, image, or link on stack', /Users/geist/.cargo/registry/src/index.crates.io-6f17d22bba15001f/markdown-1.0.0-alpha.10/src/to_mdast.rs:1275:14
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+fatal runtime error: failed to initiate panic, error 5
+error Command failed with signal "SIGABRT".
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.

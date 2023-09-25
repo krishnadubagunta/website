@@ -4,3 +4,4 @@ node_modules
 packages/shared/kd-ui/@/**/*
 .vercel
 .turbo
+.env.local

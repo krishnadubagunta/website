@@ -18,7 +18,7 @@
   "private": true,
   "packageManager": "yarn@1.22.19",
   "devDependencies": {
-    "turbo": "^1.10.13",
+    "turbo": "^1.10.14",
     "turborepo": "^0.0.1"
   }
 }

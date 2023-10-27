@@ -42,7 +42,7 @@ export default async function MarriageLive() {
   if (!re || now.toLocaleString("en-US") < "11/09/2023, 10:00:00") {
     return (
       <div className="p-6 h-screen">
-        <div className="flex flex-col h-full place-items-center">
+        <div className="flex flex-col h-full items-center grow">
           <TypographyH1 paris>Live</TypographyH1>
           <div className="flex flex-col w-full md:w-7/12 lg:10/12 h-full place-items-start md:place-items-center justify-center space-y-10">
             <TypographyP>

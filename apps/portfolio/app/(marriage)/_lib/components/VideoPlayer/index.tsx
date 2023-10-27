@@ -1,28 +1,8 @@
 "use client";
 import TypographySmall from "kd-ui/ui/typography/small";
-import { ReactNode, useRef, useState } from "react";
+import { useState } from "react";
 import ReactPlayer from "react-player/file";
 import ReactYoutube from "react-player/youtube";
-
-const Overlay = ({ children }: { children: ReactNode }) => {
-  const [ftui, setFtui] = useState(true);
-  if (!ftui) {
-    return children;
-  }
-  return (
-    <div
-      className="relative opacity-60 space-y-4"
-      onClick={() => setFtui(false)}
-    >
-    <div className="flex w-full h-full items-center justify-center">
-        <TypographySmall className="text-black">
-        Tap to unmute
-        </TypographySmall>
-    </div>
-      <div>{children}</div>
-    </div>
-  );
-};
 
 export default function VideoPlayer({
   url,
@@ -31,21 +11,20 @@ export default function VideoPlayer({
   url: string;
   loop?: boolean;
 }) {
-  const ref = useRef<ReactPlayer>(null);
   const [mute, setMute] = useState<boolean>(true);
   function toggleMute() {
     setMute(!mute);
   }
   return (
-    <div onTouchStart={() => toggleMute()} onClick={() => toggleMute()}>
+    <div className="flex flex-col-reverse space-y-2 items-center" onTouchStart={() => toggleMute()} onClick={() => toggleMute()}>
+        <TypographySmall className="text-black">
+            Tap to {mute ? "unmute" : "mute"}
+        </TypographySmall>
       <ReactPlayer
-        ref={ref}
         url={url}
         controls={false}
         width={"auto"}
-        height={732}
         muted={mute}
-        wrapper={Overlay}
         stopOnUnmount={true}
         loop={loop}
         playing={true}
@@ -66,7 +45,7 @@ export function YoutubePlayer({ url }: { url: string }) {
         controls={false}
         canEnablePIP
         width={"auto"}
-        height={732}
+        height={450}
       />
     </div>
   );

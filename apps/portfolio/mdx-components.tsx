@@ -4,6 +4,7 @@ import H2 from 'kd-ui/ui/typography/h2'
 import H3 from 'kd-ui/ui/typography/h3'
 import H4 from 'kd-ui/ui/typography/h4'
 import P from 'kd-ui/ui/typography/p'
+import Image from 'next/image'
  
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
@@ -20,6 +21,13 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h2: H2,
     h3: H3,
     h4: H4,
+    img: ({ src, alt }) => <Image
+    className='rounded-full aspect-square object-cover brightness-110 dark:brightness-100'
+      width={250}
+      height={250}
+      src={src || ''}
+      alt={alt || ""}
+    />,
     ...components,
   }
 }

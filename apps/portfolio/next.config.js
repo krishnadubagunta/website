@@ -17,6 +17,7 @@ const nextConfig = {
   },
   experimental: {
     mdxRs: true,
+    webpackBuildWorker: true
   },
 };
 

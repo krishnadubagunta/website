@@ -1,10 +1,9 @@
-/* eslint @next/next/no-img-element: 0 */
 import TypographyH1 from "kd-ui/ui/typography/h1";
 import { YoutubePlayer } from "../../_lib/components/VideoPlayer";
 import { kv } from "@vercel/kv";
 import TypographyP from "kd-ui/ui/typography/p";
-import TypographyH3 from "kd-ui/ui/typography/h3";
 import TypographyH2 from "kd-ui/ui/typography/h2";
+import Image from "next/image";
 
 export default async function MarriageLive() {
   const re = await kv.get("liveLink");
@@ -30,10 +29,11 @@ export default async function MarriageLive() {
                 <TypographyH2 paris className="text-center">
                   Save the date
                 </TypographyH2>
-                <img
-                  className="h-8"
+                <Image
                   alt="google calendar button logo"
                   src="https://fonts.gstatic.com/s/i/productlogos/calendar_2020q4/v13/web-64dp/logo_calendar_2020q4_color_2x_web_64dp.png"
+                  width={32}
+                  height={32}
                 />
               </div>
             </a>

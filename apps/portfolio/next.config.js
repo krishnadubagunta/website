@@ -6,6 +6,7 @@ const nextConfig = {
     domains: [
       "images.ctfassets.net",
       "downloads.ctfassets.net",
+      "fonts.gstatic.com"
     ]
   },
   experimental: {

@@ -14,13 +14,11 @@ const Overlay = ({ children }: { children: ReactNode }) => {
       className="relative opacity-60 space-y-4"
       onClick={() => setFtui(false)}
     >
-      <div className="fixed">
-        <div className="flex w-full h-full items-center justify-center">
-          <TypographySmall className="text-black">
-            Tap to unmute
-          </TypographySmall>
-        </div>
-      </div>
+    <div className="flex w-full h-full items-center justify-center">
+        <TypographySmall className="text-black">
+        Tap to unmute
+        </TypographySmall>
+    </div>
       <div>{children}</div>
     </div>
   );

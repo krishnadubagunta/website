@@ -39,7 +39,7 @@ export default async function MarriageLive() {
   const re = await kv.get("liveLink");
   const now = new Date(Date.now())
 
-  if (!re || now.toLocaleString("en-US") < "11/09/2023, 10:00:00") {
+  if (!re || now.toLocaleString("en-US") < "11/9/2023, 10:00:00") {
     return (
       <div className="p-6 h-screen">
         <div className="flex flex-col h-full items-center grow">

@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 }
 
 export default async function MarriageLive() {
-  const re = await kv.get("liveLink");
+  const re = await kv.get("liveLink") as string;
   const now = new Date(Date.now())
 
   if (!re || now.toLocaleString("en-US") < "11/9/2023, 10:00:00") {
@@ -71,14 +71,13 @@ export default async function MarriageLive() {
       </div>
     );
   }
-  const youtubeUrl = Buffer.from(re as String, "base64url").toString("utf-8");
 
   return (
     <div className="p-6">
       <div className="flex flex-col w-auto place-items-center">
         <TypographyH1 paris>Live</TypographyH1>
       </div>
-      <YoutubePlayer url={youtubeUrl} />
+      <YoutubePlayer url={re} />
     </div>
   );
 }

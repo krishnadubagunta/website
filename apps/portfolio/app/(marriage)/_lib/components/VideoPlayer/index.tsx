@@ -39,14 +39,13 @@ export function YoutubePlayer({ url }: { url: string }) {
     setMute(!mute);
   }
   return (
-    <div onTouchStart={() => toggleMute()} onClick={() => toggleMute()}>
-      <ReactYoutube
+    <ReactYoutube
         url={url}
-        controls={false}
+        controls={true}
         canEnablePIP
         width={"auto"}
+        muted={mute}
         height={450}
       />
-    </div>
   );
 }

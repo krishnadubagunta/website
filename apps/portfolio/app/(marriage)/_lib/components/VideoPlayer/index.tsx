@@ -34,18 +34,11 @@ export default function VideoPlayer({
 }
 
 export function YoutubePlayer({ url }: { url: string }) {
-  const [mute, setMute] = useState<boolean>(true);
-  function toggleMute() {
-    setMute(!mute);
-  }
-  return (
-    <ReactYoutube
-        url={url}
-        controls={true}
-        canEnablePIP
-        width={"auto"}
-        muted={mute}
-        height={450}
-      />
-  );
+  return <ReactYoutube
+    url={url}
+    controls={true}
+    canEnablePIP
+    width={"auto"}
+    height={450}
+  />
 }

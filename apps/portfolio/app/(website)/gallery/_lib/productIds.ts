@@ -13,7 +13,8 @@ export default async function ProductIds() {
     
       const { productCollection: { items }} = await ContentfulApi.client(QUERY, {
         reducer: ({ data, errors }: any) => ({  ...data, ...errors }),
-        preview: true
+        preview: true,
+        revalidate: 10,
       })
 
     return items.map(({ sys: { id }}: { sys: { id: string } }) => id)

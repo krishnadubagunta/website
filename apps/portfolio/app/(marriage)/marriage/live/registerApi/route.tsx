@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { kv } from "@vercel/kv";
 
 export async function POST(request: Request) {
   const body = await request.json();
@@ -23,7 +22,7 @@ export async function GET(_: Request) {
     },
   });
   const r = await response.json();
-  console.log(r);
+
   return NextResponse.json({
     success: true,
     response: JSON.stringify(r),

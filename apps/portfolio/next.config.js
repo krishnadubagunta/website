@@ -1,6 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   transpilePackages: ["ui", "tailwindconfig"],
+  pageExtensions: ['js', 'jsx', 'mdx', 'ts', 'tsx'],
   images: {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     remotePatterns: [
@@ -14,10 +15,6 @@ const nextConfig = {
         hostname: "fonts.gstatic.com",
       },
     ],
-  },
-  experimental: {
-    mdxRs: true,
-    webpackBuildWorker: true
   },
 };
 

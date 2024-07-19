@@ -67,7 +67,7 @@ export default async function Page({
         </div>
         <div className="place-self-end flex flex-col space-y-2">
             <LinkButton href="https://kridworks.etsy.com">Request for print</LinkButton>
-            <TypographySmall>Send a chat, if you couldn't find what you're looking for</TypographySmall>
+            <TypographySmall>Send a chat, if you couldn&apos;t find what you&apos;re looking for</TypographySmall>
         </div>
       </div>
     </div>

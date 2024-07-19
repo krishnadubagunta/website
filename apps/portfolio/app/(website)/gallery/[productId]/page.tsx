@@ -1,11 +1,12 @@
 import H4 from "kd-ui/ui/typography/h4";
 import Product from "../_lib/product";
 import Image from "next/image";
-import { LinkButton } from "kd-ui/ui/button";
+import { Button, LinkButton } from "kd-ui/ui/button";
 import ReactMarkdown from "react-markdown";
 import { mdxComponents } from "../../_lib/mdx-components";
 import ProductIds from "../_lib/productIds";
 import { Metadata } from "next";
+import TypographySmall from "kd-ui/ui/typography/small";
 
 export async function generateMetadata({
   params: {
@@ -64,8 +65,9 @@ export default async function Page({
             {description}
           </ReactMarkdown>
         </div>
-        <div className="place-self-end">
-            <LinkButton href="mailto:dubagunta.saikrishna+orders@outlook.com">Request for print</LinkButton>
+        <div className="place-self-end flex flex-col space-y-2">
+            <LinkButton href="https://kridworks.etsy.com">Request for print</LinkButton>
+            <TypographySmall>Send a chat, if you couldn't find what you're looking for</TypographySmall>
         </div>
       </div>
     </div>

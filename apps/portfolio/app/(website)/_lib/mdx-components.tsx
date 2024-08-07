@@ -12,9 +12,9 @@ import P from "kd-ui/ui/typography/p";
 export const mdxComponents: MDXComponents = {
   h1: ({ children }) => H1({ children, kaisei: true }),
   p: ({ children }) => <P className="dark:text-neutral-100 text-neutral-950">{children}</P>,
-  h2: H2,
-  blockquote: Blockquote as any,
-  h3: ({ children }) => H3({ children, kaisei: true }),
+  h2: ({children}) => H2({ children, kaisei: true }),
+  blockquote: ({ children }) => Blockquote({ children, className: "italic m-4" }) as any,
+  h3: ({ children }) => H3({ children, kaisei: true, className: "pt-1" }),
   h4: H4,
   img: (
     image: DetailedHTMLProps<
@@ -23,7 +23,7 @@ export const mdxComponents: MDXComponents = {
     >
   ) => {
     return (
-      <div className="flex items-center flex-col w-full space-y-4">
+      <div className="flex items-center aspect-video flex-col w-full space-y-4 py-3">
         <Image
           src={image.src || ""}
           width={768}

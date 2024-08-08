@@ -2,8 +2,7 @@
 import { formatDate } from "@/app/(website)/_lib/string";
 import clsx from "clsx";
 import { allBlogs } from "contentlayer/generated";
-import { BackButton, Button } from "kd-ui/ui/button";
-import H3 from "kd-ui/ui/typography/h3";
+import { BackButton } from "kd-ui/ui/button";
 import P from "kd-ui/ui/typography/p";
 import Small from "kd-ui/ui/typography/small";
 import { ArrowLeftIcon } from "lucide-react";

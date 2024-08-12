@@ -1,9 +1,11 @@
-import H3 from "kd-ui/ui/typography/h3";
 import { allBlogs } from "contentlayer/generated";
 import Link from "next/link";
 import Small from "kd-ui/ui/typography/small";
 import { formatDate } from "../_lib/string";
 import { Metadata } from "next";
+import TypographyH2 from "kd-ui/ui/typography/h2";
+import TypographyH3 from "kd-ui/ui/typography/h3";
+import TypographyP from "kd-ui/ui/typography/p";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.krishnadubagunta.com'),
@@ -16,8 +18,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <div className="pt-6 flex flex-col sm:w-4/12">
-      <H3>read my blog</H3>
+    <div className="pt-6 flex flex-col">
+      <TypographyH3>read my blog</TypographyH3>
       <div className="pt-4">
         {allBlogs
           .sort((a, b) => {
@@ -26,17 +28,19 @@ export default function Page() {
             }
             return 1;
           })
+          .filter((blog) => !blog.hide)
           .map((post) => (
-            <div className="pb-4" key={post.slug}>
+            <section className="pb-4" key={post.slug}>
               <Link href={`/blogs/${post.slug}`}>
-                <div className="flex flex-col">
-                  <Small className="pb-1 text-neutral-700 dark:text-neutral-300">{post.title}</Small>
+                <article className="prose flex flex-col">
+                  <TypographyH3 className="text-neutral-700 dark:text-neutral-300">{post.title}</TypographyH3>
+                  <TypographyP className="text-neutral-700 dark:text-neutral-300 text-xs">{post.summary}</TypographyP>
                   <Small className="text-neutral-400 dark:text-neutral-600 text-xs">
-                    {formatDate(post.publishedAt)}
+                    { formatDate(post.publishedAt) }
                   </Small>
-                </div>
+                </article>
               </Link>
-            </div>
+            </section>
           ))}
       </div>
     </div>

@@ -27,6 +27,7 @@ export default function Layout(props: { children: React.ReactNode }) {
               }
               return 1;
             })
+            .filter((post) => !post.hide)
             .map((post) => 
               {
                 return <Link

@@ -18,6 +18,7 @@ const computedFields = {
       description: doc.summary,
       shortTitle: doc.shortTitle,
       keywords: doc.keywords,
+      hide: doc.hide,
       image: `https://krishnadubagunta.com${doc.image}`,
       url: `https://krishnadubagunta.com/blogs/${doc._raw.flattenedPath}`,
       author: {
@@ -54,6 +55,10 @@ export const Blog = defineDocumentType(() => ({
     },
     keywords: {
       type: 'string'
+    },
+    hide: {
+      type: "boolean",
+      required: false
     }
   },
   computedFields,

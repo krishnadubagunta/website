@@ -13,7 +13,7 @@ export const mdxComponents: MDXComponents = {
   h1: ({ children }) => H1({ children, kaisei: true }),
   p: ({ children }) => <P className="dark:text-neutral-100 text-neutral-950">{children}</P>,
   h2: ({children}) => H2({ children, kaisei: true }),
-  blockquote: ({ children }) => Blockquote({ children, className: "italic m-4" }) as any,
+  blockquote: ({ children }) => Blockquote({ children, className: "mx-4 dark:bg-gray-700 bg-gray-300 p-4" }) as any,
   h3: ({ children }) => H3({ children, kaisei: true, className: "pt-1" }),
   h4: H4,
   img: (

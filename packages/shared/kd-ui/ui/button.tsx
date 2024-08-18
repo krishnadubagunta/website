@@ -59,10 +59,19 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 )
 Button.displayName = "Button"
 
-const BackButton = ({ children, className }: ReactChildren) => {
+const BackButton = ({ children, className, defaultTo = "/" }: ReactChildren & { defaultTo: string}) => {
   const router = useRouter()
+  
+  const handleBack = () => {
+    if (window.history?.length && window.history.length > 1) {
+      router.back();
+   } else {
+      router.replace(defaultTo);
+   }
+  }
+
   return <div className="flex md:hidden">
-  <Button size={'xs'} className={clsx("pl-0", className)} onClick={router.back} variant='link'>
+  <Button size={'xs'} className={clsx("pl-0", className)} onClick={handleBack} variant='link'>
     { children }
   </Button>
 </div>

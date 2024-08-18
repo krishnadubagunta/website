@@ -29,6 +29,7 @@ export const mdxComponents: MDXComponents = {
           width={768}
           height={432}
           alt={image.alt || ""}
+          priority={true}
         />
         <Small variant="light">{image.title}</Small>
       </div>

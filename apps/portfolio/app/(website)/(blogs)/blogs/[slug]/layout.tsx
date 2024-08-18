@@ -14,7 +14,7 @@ export default function Layout(props: { children: React.ReactNode }) {
   
   return (
     <section className="flex flex-col md:flex-row">
-      <BackButton className='text-neutral-500'>
+      <BackButton defaultTo="../blogs" className='text-neutral-500'>
         <ArrowLeftIcon size={12} />&nbsp;<Small>Blogs</Small>
       </BackButton>
       <div className="md:flex-col md:w-2/12 hidden md:flex pt-6 sm:pr-2 lg:pr-4">

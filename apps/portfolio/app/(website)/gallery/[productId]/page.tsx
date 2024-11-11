@@ -8,11 +8,13 @@ import ProductIds from "../_lib/productIds";
 import { Metadata } from "next";
 import TypographySmall from "kd-ui/ui/typography/small";
 
-export async function generateMetadata({
-  params: {
+export async function generateMetadata(props: { params: Promise<{ productId: string }> }): Promise<Metadata | undefined> {
+  const params = await props.params;
+
+  const {
     productId
-  },
-}: { params: { productId: string } }): Promise<Metadata | undefined> {
+  } = params;
+
   const {
     product: { asset, description, title },
   } = await Product({ productId });
@@ -41,11 +43,17 @@ export async function generateMetadata({
   };
 }
 
-export default async function Page({
-  params: { productId },
-}: {
-  params: { productId: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ productId: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    productId
+  } = params;
+
   const {
     product: { asset, description, title },
   } = await Product({ productId });

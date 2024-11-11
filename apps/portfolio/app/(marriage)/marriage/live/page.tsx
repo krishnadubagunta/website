@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Chidrupi & Krishna's Wedding Ceremony",
   description: "The live telecast of Chidrupi & KD's Wedding",
   icons: ['/favicon.ico'],
+
   openGraph: {
     title: "Chidrupi & Krishna's Wedding Ceremony",
     description: "The live telecast of Chidrupi & KD's Wedding",
@@ -32,7 +33,8 @@ export const metadata: Metadata = {
       }
     ],
   },
-  keywords: 'wedding,indian-wedding,live',
+
+  keywords: 'wedding,indian-wedding,live'
 }
 
 export default async function MarriageLive() {

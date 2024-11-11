@@ -11,11 +11,17 @@ import {
 import Muted from "kd-ui/ui/typography/muted";
 import Image from "next/image";
 
-export default async function Content({
-  params: { segment },
-}: {
-  params: { segment: string };
-}) {
+export default async function Content(
+  props: {
+    params: Promise<{ segment: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    segment
+  } = params;
+
   await setTimeout(() => {}, 10000);
   const data = await fetch(`http://localhost:3001/api/${segment}`, {
     cache: "no-cache",

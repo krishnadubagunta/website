@@ -1,4 +1,5 @@
-"use client";
+"use client";;
+import { use } from "react";
 import medias from "db/models/medias";
 import socials from "db/models/socials";
 import { Button, SignOutButton } from "kd-ui/ui/button";
@@ -8,16 +9,25 @@ import P from "kd-ui/ui/typography/p";
 import { PlusSquare } from "lucide-react";
 import { useRouter } from "next/navigation";
 
-export default function ContentLayout({
+export default function ContentLayout(
+  props: {
+      medias: React.ReactNode;
+      socials: React.ReactNode;
+      params: Promise<{ segment: string }>;
+    }
+) {
+  const params = use(props.params);
+
+  const {
+    segment
+  } = params;
+
+  const {
     medias,
-    socials,
-    params: { segment },
-  }: {
-    medias: React.ReactNode;
-    socials: React.ReactNode;
-    params: { segment: string };
-  }) {
-    const router = useRouter();
+    socials
+  } = props;
+
+  const router = useRouter();
   return (
     <div className="flex flex-col w-full">
       <div className="flex justify-end">

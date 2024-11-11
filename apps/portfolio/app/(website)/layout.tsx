@@ -12,7 +12,9 @@ export const metadata: Metadata = {
     default: "Krishna Dubagunta (KD)",
     template: "%s | Krishna Dubagunta",
   },
+
   description: "Portfolio site of KD",
+
   icons: [
     {
       url: "/android-chrome-192x192.png",
@@ -24,7 +26,7 @@ export const metadata: Metadata = {
       sizes: "512x512",
       type: "image/png",
     },
-  ],
+  ]
 };
 
 export default function RootLayout({
@@ -33,21 +35,22 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body
         className={clsx(
           inter.className,
+          "flex min-h-screen flex-col justify-between pt-4",
           "sm:px-12 lg:px-20 px-4 py-6"
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider defaultTheme="dark">
           <Navbar
             refs={{
               "/": {
                 name: "Home",
               },
-              "/blogs": {
-                matcher: ["/blogs?/*"],
+              "/blog": {
+                matcher: ["/blog?/*"],
                 name: "Blog",
               },
               "/gallery": {
@@ -56,7 +59,7 @@ export default function RootLayout({
               },
             }}
           />
-          <main className="flex min-h-screen flex-col justify-between pt-4">
+          <main>
             {children}
           </main>
         </ThemeProvider>

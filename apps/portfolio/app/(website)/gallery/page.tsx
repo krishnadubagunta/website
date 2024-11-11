@@ -35,7 +35,7 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-snippet': -1,
     },
-  },
+  }
 }
 
 function GalleryCard({ photo }: any) {
@@ -56,11 +56,12 @@ function GalleryCard({ photo }: any) {
   );
 }
 
-export default async function Gallery({
-  searchParams,
-}: {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default async function Gallery(
+  props: {
+    searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const photos = await Products(
     (searchParams?.cameraType as string)?.split(",") || [],
     {
@@ -68,8 +69,8 @@ export default async function Gallery({
     }
   );
   return (
-    <div className="pt-6 flex flex-col place-self-center w-10/12">
-      <H3>gallery&nbsp;&nbsp;&nbsp;📸</H3>
+    <div className="pt-4 flex flex-col">
+      <H3 kaisei>gallery&nbsp;&nbsp;&nbsp;📸</H3>
       <div className="pt-4">
         <CameraFilters />
       </div>

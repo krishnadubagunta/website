@@ -10,11 +10,17 @@ import {
 import Muted from "kd-ui/ui/typography/muted";
 import Image from "next/image";
 
-export default async function Medias({
-  params: { segment },
-}: {
-  params: { segment: string };
-}) {
+export default async function Medias(
+  props: {
+    params: Promise<{ segment: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    segment
+  } = params;
+
   const res = await fetch(`http://localhost:3001/api/${segment}`, {
     cache: 'no-cache',
     method: "POST",

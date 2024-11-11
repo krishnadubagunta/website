@@ -19,6 +19,9 @@
   "devDependencies": {
     "turbo": "^1.10.14"
   },
+  "peerDependencies": {
+    "@opentelemetry/api": "1.4.1"
+  },
   "dependencies": {
     "drizzle-orm": "^0.36.1"
   }

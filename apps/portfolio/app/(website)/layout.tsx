@@ -25,7 +25,7 @@ export default function RootLayout({
           "sm:px-12 lg:px-20 px-4 py-6"
         )}
       >
-        <ThemeProvider defaultTheme="dark" enableSystem enableColorScheme>
+        <ThemeProvider defaultTheme="light" enableColorScheme>
           <Navbar
             refs={{
               "/": {

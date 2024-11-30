@@ -1,10 +1,10 @@
 import clsx from "clsx";
-import { TypographyType } from "./types";
+import { TypographyType, TypographyType2 } from "./types";
 import { kaiseiFont } from "../../styles/kaiseiFont";
 import React, { ReactElement } from "react";
 import { parisFont } from "../../styles/parisFont";
 
-export default function Base({ className, children, kaisei=false, paris=false, variant }: TypographyType) {
+export default function Base<T>({ className, children, kaisei=false, paris=false, variant }: TypographyType2<T>) {
     if (!children) return null
 
     const element = React.cloneElement(children as ReactElement, {

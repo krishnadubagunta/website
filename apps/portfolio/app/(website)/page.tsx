@@ -3,10 +3,23 @@ import Content from './content.mdx'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.krishnadubagunta.com'),
-  title: 'Krishna Dubagunta (KD)',
+  title: {
+    default: "Krishna Dubagunta (KD)",
+    template: "%s | Krishna Dubagunta",
+  },
   description: 'Portfolio of Krishna Dubagunta | Software Engineer | Landscape Photographer',
-  icons: ['/favicon.ico'],
-
+  icons: [
+    {
+      url: "/android-chrome-192x192.png",
+      sizes: "192x192",
+      type: "image/png",
+    },
+    {
+      url: "/android-chrome-512x512.png",
+      sizes: "512x512",
+      type: "image/png",
+    },
+  ],
   openGraph: {
     title: 'Krishna Dubagunta (KD)',
     description: 'Portfolio of Krishna Dubagunta | Software Engineer | Landscape Photographer',

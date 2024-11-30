@@ -1,15 +1,13 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import DarkmodeToggle from "./darkmode";
 import { LayoutGroup, motion } from "framer-motion";
 import clsx from "clsx";
 import Small from "./typography/small";
-import P from "./typography/p";
 import { MenuIcon } from "lucide-react";
-import { Button } from "./button";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./sheet";
-import { find } from 'lodash'
+import { find } from 'lodash';
+import dynamic from "next/dynamic";
 
 export default function Navbar({
   refs
@@ -53,7 +51,6 @@ export default function Navbar({
               )}
             </div>
             <hr className="border-neutral-400" />
-            <DarkmodeToggle />
           </SheetContent>
         </Sheet>
       </div>
@@ -98,7 +95,6 @@ export default function Navbar({
             </div>
           </LayoutGroup>
         </div>
-        <DarkmodeToggle />
       </div>
     </nav>
   );

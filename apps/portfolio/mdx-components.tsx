@@ -16,11 +16,11 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
   return {
     // Allows customizing built-in components, e.g. to add styling.
     // h1: ({ children }) => <h1 style={{ fontSize: "100px" }}>{children}</h1>,
-    h1: H1,
-    p: P,
+    h1: ({ children }) => <H1>{children}</H1>,
+    p: ({ children }) => <P>{ children }</P>,
     h2: ({ children }) => <H2 kaisei className='p-2'>{children}</H2>,
     h3: ({ children }) => <H3 kaisei className='p-2'>{children}</H3>,
-    h4: H4,
+    h4: ({ children }) => <H4>{children}</H4>,
     img: ({ src, alt }) => <Image
     className='rounded-full aspect-square object-cover brightness-110 dark:brightness-100'
       width={250}

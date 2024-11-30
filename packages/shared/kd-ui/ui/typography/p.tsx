@@ -1,7 +1,7 @@
 import Base from "./base";
-import { TypographyType } from "./types";
+import { TypographyType, TypographyType2 } from "./types";
 
-export default function TypographyP({ children, ...props }: TypographyType) {
+export default function TypographyP({ children, ...props }: TypographyType2<HTMLParagraphElement>) {
     return (
       <Base {...props}>
         <p className="leading-5 [&:not(:first-child)]:mt-3">

@@ -1,9 +1,7 @@
 import H4 from "kd-ui/ui/typography/h4";
 import Product from "../_lib/product";
 import Image from "next/image";
-import { Button, LinkButton } from "kd-ui/ui/button";
-import ReactMarkdown from "react-markdown";
-import { mdxComponents } from "../../_lib/mdx-components";
+import { LinkButton } from "kd-ui/ui/button";
 import ProductIds from "../_lib/productIds";
 import { Metadata } from "next";
 import TypographySmall from "kd-ui/ui/typography/small";
@@ -69,9 +67,7 @@ export default async function Page(
             width={asset.width}
             alt={description || "alt here"}
           />
-          <ReactMarkdown components={mdxComponents}>
-            {description}
-          </ReactMarkdown>
+          {description}
         </div>
         <div className="place-self-end flex flex-col space-y-2">
             <LinkButton href="https://kridworks.etsy.com">Request for print</LinkButton>

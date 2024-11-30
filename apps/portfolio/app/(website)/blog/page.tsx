@@ -2,12 +2,13 @@ import TypographyH3 from "kd-ui/ui/typography/h3";
 import TypographyP from "kd-ui/ui/typography/p";
 import TypographySmall from "kd-ui/ui/typography/small";
 import Link from "next/link";
-import { formatDate } from "../_lib/string";
 import { Metadata } from "next";
-import { Label } from "kd-ui/ui/label";
 import { Badge } from "kd-ui/ui/badge";
-import { ExternalLink } from "lucide-react";
+import Icon from 'kd-ui/ui/icon';
 import { db } from "@/db";
+import { ExternalLink } from "lucide-react";
+
+export const revalidate = 100;
 
 interface Post {
     id: number;
@@ -47,13 +48,13 @@ export default async function Blog() {
         </div>
     }
 
-    return <div className="pt-6 flex flex-col">
+    return <div className="pt-4 flex flex-col space-y-4">
       <TypographyH3 kaisei>read my blog</TypographyH3>
-      <div className="pt-4">
-        {
+      <div>
+      {
             posts.map((post) => <section key={post.id}>
+              <article className="prose flex flex-col prose-a:no-underline hover:bg-accent p-4 rounded-sm">
             <Link href={post.link} target="__blank">
-              <article className="prose flex flex-col">
                 <div className="flex items-center justify-between">
                     <TypographyH3 className="text-neutral-700 dark:text-neutral-300">{post.title}</TypographyH3>
                     <ExternalLink height={16} />
@@ -67,11 +68,10 @@ export default async function Blog() {
                         Updated on: { post.lastUpdated?.toDateString() }
                     </TypographySmall>}
                 </div>
-                <CategoryComp categories={post.categories} />
-              </article>
             </Link>
+              </article>
           </section>)
         }
-    </div>
+      </div>
     </div>
 }

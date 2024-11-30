@@ -3,8 +3,8 @@ import H3 from "kd-ui/ui/typography/h3";
 
 export default function Loading() {
   return (<div className="pt-4 flex flex-col">
-  <H3 kaisei>gallery&nbsp;&nbsp;&nbsp;📸</H3>
-  <div className="pt-4 flex space-x-4">
+    <H3 kaisei>gallery&nbsp;&nbsp;&nbsp;📸</H3>
+  <div className="pt-6 flex space-x-4">
     <Skeleton className="h-5 w-16" />
     <Skeleton className="h-5 w-16" />
     <Skeleton className="h-5 w-16" />

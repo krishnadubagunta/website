@@ -1,0 +1,15 @@
+
+> content-creator@0.1.0 build
+> next build
+
+ [33m[1m⚠[22m[39m Invalid next.config.js options detected: 
+ [33m[1m⚠[22m[39m     Expected object, received boolean at "experimental.serverActions"
+ [33m[1m⚠[22m[39m     Unrecognized key(s) in object: 'serverComponentsExternalPackages' at "experimental"
+ [33m[1m⚠[22m[39m See more info here: https://nextjs.org/docs/messages/invalid-next-config
+ [33m[1m⚠[22m[39m The "experimental.esmExternals" option has been modified. experimental.esmExternals is not recommended to be modified as it may disrupt module resolution. It should be removed from your next.config.js.
+ [33m[1m⚠[22m[39m `experimental.serverComponentsExternalPackages` has been moved to `serverExternalPackages`. Please update your next.config.js file accordingly.
+   [1m[38;2;173;127;168m▲ Next.js 15.0.2[39m[22m
+   - Experiments (use with caution):
+     · esmExternals
+
+ [37m[1m [22m[39m Creating an optimized production build ...

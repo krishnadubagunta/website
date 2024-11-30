@@ -1,7 +1,7 @@
 import { fontFamily } from 'tailwindcss/defaultTheme'
 import { Config } from 'tailwindcss'
 
-const config: Config = {
+const config: Partial<Config> = {
   darkMode: ["class"],
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {

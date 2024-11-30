@@ -1,10 +1,8 @@
-import { turso } from "@/app/(website)/_lib/libsql/client";
 import { db } from "@/db";
 import { blogTable } from "@/db/schema";
-import { count, eq } from 'drizzle-orm'
-import { randomInt, randomUUID } from "crypto";
+import { eq } from 'drizzle-orm';
 import { NextRequest, NextResponse } from "next/server";
-import Parser from 'rss-parser'
+import Parser from 'rss-parser';
 
 type NewFeed = typeof blogTable.$inferInsert
 
@@ -30,7 +28,6 @@ export async function GET(req: NextRequest) {
     const feedResults = FEEDS.flatMap(async (feedUrl) => {
         const feeds_set= await parser.parseURL(feedUrl);
         const addResults = feeds_set.items.map(async (post) => {
-            console.log(post.categories)
             const feedValues: NewFeed = {
                 description: post.contentSnippet!,
                 title: post.title!,
@@ -56,6 +53,6 @@ export async function GET(req: NextRequest) {
         return addResults
     })
 
-    
+
     return NextResponse.json({ data: feedResults, ok: true })
 }

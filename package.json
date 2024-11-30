@@ -16,8 +16,10 @@
   "author": "Krishna Dubagunta <dubagunta.saikrishna@outlook.com>",
   "license": "MIT",
   "private": true,
-  "packageManager": "npm@8.19.2",
   "devDependencies": {
     "turbo": "^1.10.14"
+  },
+  "dependencies": {
+    "drizzle-orm": "^0.36.1"
   }
 }

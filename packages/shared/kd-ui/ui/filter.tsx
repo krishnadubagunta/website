@@ -24,19 +24,21 @@ export default function Filter({ filterKey, filters }: { filterKey:string, filte
         }
     }, [filteredItems])
 
-    return <div className="md:space-x-4 space-x-2">
-        {
-            filters.map((filter) => <button key={filter} onClick={() => {
-                if(findFilter(filter)) {
-                    setFilteredItems(remove(filteredItems, (f) => f!==filter))
-                }
-                else {
-                    setFilteredItems([ ...filteredItems, filter ])
-                }
-            }} className={badgeVariants({ ...findFilter(filter) ? { variant: 'default' } : { variant: 'outline' } })}>
-                <Small variant="light">{filter}</Small>
-            </button>)
-        }
-    </div>
+    return (
+        <div className="md:space-x-4 space-x-2">
+            {
+                filters.map((filter) => <button key={filter} onClick={() => {
+                    if(findFilter(filter)) {
+                        setFilteredItems(remove(filteredItems, (f) => f!==filter))
+                    }
+                    else {
+                        setFilteredItems([ ...filteredItems, filter ])
+                    }
+                }} className={badgeVariants({ ...(findFilter(filter) ? { variant: 'default' } : { variant: 'outline' }) })}>
+                    <Small variant="light">{filter}</Small>
+                </button>)
+            }
+        </div>
+    );
 
 }

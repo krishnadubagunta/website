@@ -1,3 +1,5 @@
+import { NextFetchEvent } from "next/server"
+
 export default class ContentfulApi {
     static QUERY_ENDPOINT = `https://graphql.contentful.com/content/v1/spaces/${process.env.NEXT_PUBLIC_CONTENTFUL_SPACE_ID}/environments/development`
     static fetchOptions(query: string, { preview, revalidate = null }: any): {} {
@@ -8,9 +10,7 @@ export default class ContentfulApi {
           "Content-Type": "application/json"
         },
         body: JSON.stringify({ query }),
-        next: {
-          revalidate
-        }
+        revalidate
       }
     }
   

@@ -1,6 +1,9 @@
-/** @type {import('next').NextConfig} */
+const createMDX =  require('@next/mdx')
+
+ 
 const nextConfig = {
-  transpilePackages: ["ui", "tailwindconfig"],
+  pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  transpilePackages: ["ui", "tailwindconfig", "lucide-react"],
   images: {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     remotePatterns: [
@@ -16,11 +19,15 @@ const nextConfig = {
     ],
   },
   experimental: {
-    mdxRs: true,
-    webpackBuildWorker: true
+    mdxRs: true
   },
 };
 
-const withMDX = require("@next/mdx")();
-const { withContentlayer } = require("next-contentlayer");
-module.exports = withContentlayer(withMDX(nextConfig));
+const withMDX = createMDX({
+  options: {
+    rehypePlugins: [],
+    remarkPlugins: []
+  }
+})
+
+module.exports = withMDX(nextConfig);

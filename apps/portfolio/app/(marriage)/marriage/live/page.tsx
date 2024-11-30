@@ -1,42 +1,43 @@
 import TypographyH1 from "kd-ui/ui/typography/h1";
 import VideoPlayer, { YoutubePlayer } from "../../_lib/components/VideoPlayer";
-import { kv } from "@vercel/kv";
 import TypographyP from "kd-ui/ui/typography/p";
 import Image from "next/image";
 import TypographyH3 from "kd-ui/ui/typography/h3";
 import { Metadata } from "next/types";
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://www.krishnadubagunta.com/marriage/live'),
-  title: "Chidrupi & Krishna's Wedding Ceremony",
-  description: "The live telecast of Chidrupi & KD's Wedding",
-  icons: ['/favicon.ico'],
-  openGraph: {
-    title: "Chidrupi & Krishna's Wedding Ceremony",
-    description: "The live telecast of Chidrupi & KD's Wedding",
-    url: 'https://www.krishnadubagunta.com/marriage/live',
-    type: 'video.other',
-    locale: "en_IN",
-    videos: [
-      {
-        url: "https://www.krishnadubagunta.com/marriage/live",
-        secureUrl: "https://www.krishnadubagunta.com/marriage/live",
-        type: "live"
-      }
-    ],
-    images: [
-      {
-        url: "https://krishnadubagunta.com/images/wedding_og.jpeg",
-        alt: 'Me near DUMBO in brooklyn just after snow',
-        type: 'image/jpeg'
-      }
-    ],
-  },
-  keywords: 'wedding,indian-wedding,live',
-}
+// export const metadata: Metadata = {
+//   metadataBase: new URL('https://www.krishnadubagunta.com/marriage/live'),
+//   title: "Chidrupi & Krishna's Wedding Ceremony",
+//   description: "The live telecast of Chidrupi & KD's Wedding",
+//   icons: ['/favicon.ico'],
+
+//   openGraph: {
+//     title: "Chidrupi & Krishna's Wedding Ceremony",
+//     description: "The live telecast of Chidrupi & KD's Wedding",
+//     url: 'https://www.krishnadubagunta.com/marriage/live',
+//     type: 'video.other',
+//     locale: "en_IN",
+//     videos: [
+//       {
+//         url: "https://www.krishnadubagunta.com/marriage/live",
+//         secureUrl: "https://www.krishnadubagunta.com/marriage/live",
+//         type: "live"
+//       }
+//     ],
+//     images: [
+//       {
+//         url: "https://krishnadubagunta.com/images/wedding_og.jpeg",
+//         alt: 'Me near DUMBO in brooklyn just after snow',
+//         type: 'image/jpeg'
+//       }
+//     ],
+//   },
+
+//   keywords: 'wedding,indian-wedding,live'
+// }
 
 export default async function MarriageLive() {
-  const re = await kv.get("liveLink") as string;
+  const re = "https://www.youtube.com/live/Hx7WEFN72hM?si=HD7hjwdkwfYZCzbA";
   const now = new Date(Date.now())
 
   if (!re || now.toLocaleString("en-US") < "11/9/2023, 10:00:00") {

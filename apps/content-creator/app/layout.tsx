@@ -14,7 +14,9 @@ export const metadata: Metadata = {
     default: "Content Creator | Krishna Dubagunta",
     template: "%s | Content Creator | Krishna Dubagunta",
   },
+
   description: "Content creator application by Krishna Dubagunta",
+
   icons: [
     {
       url: "/android-chrome-192x192.png",
@@ -26,7 +28,7 @@ export const metadata: Metadata = {
       sizes: "512x512",
       type: "image/png",
     },
-  ],
+  ]
 };
 
 export default async function RootLayout({
@@ -36,7 +38,7 @@ export default async function RootLayout({
   dashboard: React.ReactNode;
   login: React.ReactNode;
 }) {
-  const { user } = await getServerSession() || {}
+  const { user } = (await getServerSession()) || {}
   if (!user) {
     return <html lang="en" suppressHydrationWarning>
     <body

@@ -2,67 +2,38 @@
 > portfolio@0.1.0 build
 > next build
 
-- info Loaded env from /Volumes/Projects/website/apps/portfolio/.env.local
-- warn You have enabled experimental feature (mdxRs) in next.config.js.
-- warn Experimental features are not covered by semver, and may cause unexpected or broken application behavior. Use at your own risk.
+   [1m[38;2;173;127;168m▲ Next.js 15.0.3[39m[22m
+   - Environments: .env.local
+   - Experiments (use with caution):
+     · turbo
 
-Generated 2 documents in .contentlayer
-- info Creating an optimized production build...
-- info Compiled successfully
-- info Linting and checking validity of types...
-- info Collecting page data...
-(node:4354) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-- info Generating static pages (0/26)
-(node:4351) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:4350) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-- info Generating static pages (6/26)
-(node:4352) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-- info Generating static pages (12/26)
-(node:4356) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:4353) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-(node:4355) ExperimentalWarning: The Fetch API is an experimental feature. This feature could change at any time
-(Use `node --trace-warnings ...` to show where the warning was created)
-- info Generating static pages (19/26)
-- info Generating static pages (26/26)
-- info Finalizing page optimization...
+ [37m[1m [22m[39m Creating an optimized production build ...
+[31mFailed to compile.
+[39m
+./app/(marriage)/_lib/components/VideoPlayer/index.tsx
+[31m[1mModule not found[22m[39m: Can't resolve '[32mreact-player/file[39m'
 
-Route (app)                                Size     First Load JS
-┌ ○ /                                      197 B          89.8 kB
-├ ○ /apple-icon-2i9ure.png                 0 B                0 B
-├ ○ /blogs                                 191 B          84.8 kB
-├ ● /blogs/[slug]                          2.92 kB        86.6 kB
-├   ├ /blogs/2023
-├   └ /blogs/developing_ig_uploader
-├ λ /gallery                               2.43 kB        98.4 kB
-├ ● /gallery/[productId]                   1.13 kB         109 kB
-├   ├ /gallery/JD891wFvvHHSVrkOsmeQC
-├   ├ /gallery/5vUMMHGkYYmye64PCAs89g
-├   ├ /gallery/7HdkfbyAJhLOpnv6wK6N8M
-├   └ [+12 more paths]
-├ ○ /marriage/invite                       13.3 kB        92.1 kB
-├ ○ /marriage/location                     140 B          78.9 kB
-└ ○ /sitemap.xml                           0 B                0 B
-+ First Load JS shared by all              78.7 kB
-  ├ chunks/1dd3208c-91aee2975b47796a.js    50.5 kB
-  ├ chunks/575-e74c79c5b73a759c.js         26.1 kB
-  ├ chunks/main-app-4df231bff3ecf258.js    221 B
-  └ chunks/webpack-8163a00f2870188a.js     1.9 kB
+https://nextjs.org/docs/messages/module-not-found
 
-Route (pages)                              Size     First Load JS
-─ ○ /404                                   178 B          76.7 kB
-+ First Load JS shared by all              76.5 kB
-  ├ chunks/framework-0857c1c24dbfb1d6.js   45.1 kB
-  ├ chunks/main-5449bef0bc038615.js        29.4 kB
-  ├ chunks/pages/_app-12a7bb3ca92362ee.js  195 B
-  └ chunks/webpack-8163a00f2870188a.js     1.9 kB
+./app/(marriage)/_lib/components/VideoPlayer/index.tsx
+[31m[1mModule not found[22m[39m: Can't resolve '[32mreact-player/youtube[39m'
 
-λ  (Server)  server-side renders at runtime (uses getInitialProps or getServerSideProps)
-○  (Static)  automatically rendered as static HTML (uses no initial props)
-●  (SSG)     automatically generated as static HTML + JSON (uses getStaticProps)
+https://nextjs.org/docs/messages/module-not-found
 
+./app/(marriage)/marriage/live/register/formSchema.tsx
+[31m[1mModule not found[22m[39m: Can't resolve '[32m@hookform/resolvers/zod[39m'
+
+https://nextjs.org/docs/messages/module-not-found
+
+./app/(marriage)/marriage/live/page.tsx
+[31m[1mModule not found[22m[39m: Can't resolve '[32m@vercel/kv[39m'
+
+https://nextjs.org/docs/messages/module-not-found
+
+
+> Build failed because of webpack errors
+[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mLifecycle script `build` failed with error:[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mError: command failed[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  in workspace: portfolio@0.1.0[0m 
+[0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  at location: /Volumes/Projects/website/apps/portfolio[0m 
+[0m

@@ -8,6 +8,7 @@ import { MenuIcon } from "lucide-react";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./sheet";
 import { find } from 'lodash';
 import dynamic from "next/dynamic";
+import DarkmodeToggle from "./darkmode";
 
 export default function Navbar({
   refs
@@ -51,6 +52,7 @@ export default function Navbar({
               )}
             </div>
             <hr className="border-neutral-400" />
+            <DarkmodeToggle />
           </SheetContent>
         </Sheet>
       </div>
@@ -95,6 +97,7 @@ export default function Navbar({
             </div>
           </LayoutGroup>
         </div>
+        <DarkmodeToggle />
       </div>
     </nav>
   );

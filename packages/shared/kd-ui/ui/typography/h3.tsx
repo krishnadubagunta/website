@@ -10,4 +10,3 @@ export default function TypographyH3({ children, ...props }:TypographyType2<HTML
       </Base>
     )
   }
-  

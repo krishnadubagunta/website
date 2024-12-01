@@ -48,23 +48,23 @@ export default async function Blog() {
         </div>
     }
 
-    return <div className="pt-4 flex flex-col space-y-4">
+    return <div className="pt-6 flex flex-col space-y-4">
       <TypographyH3 kaisei>read my blog</TypographyH3>
       <div>
       {
             posts.map((post) => <section key={post.id}>
-              <article className="prose flex flex-col prose-a:no-underline hover:bg-accent p-4 rounded-sm">
+              <article className="w-full lg:w-6/12 flex flex-col hover:bg-muted p-4 rounded-sm">
             <Link href={post.link} target="__blank">
                 <div className="flex items-center justify-between">
-                    <TypographyH3 className="text-neutral-700 dark:text-neutral-300">{post.title}</TypographyH3>
+                    <TypographyH3>{post.title}</TypographyH3>
                     <ExternalLink height={16} />
                 </div>
-                <TypographyP className="text-neutral-700 dark:text-neutral-300 ">{post.description}</TypographyP>
-                <div className="flex justify-between">
-                    <TypographySmall className="text-neutral-400 dark:text-neutral-600 text-xs">
+                <TypographyP className="py-2">{post.description}</TypographyP>
+                <div className="flex justify-between py-2">
+                    <TypographySmall className="text-xs">
                         { post.pubDate?.toDateString() }
                     </TypographySmall>
-                    { post.lastUpdated && <TypographySmall className="text-neutral-400 dark:text-neutral-600 text-xs">
+                    { post.lastUpdated && <TypographySmall className="text-xs">
                         Updated on: { post.lastUpdated?.toDateString() }
                     </TypographySmall>}
                 </div>

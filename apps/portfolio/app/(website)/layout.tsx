@@ -21,11 +21,11 @@ export default function RootLayout({
       <body
         className={clsx(
           inter.className,
-          "flex min-h-screen flex-col justify-between pt-6",
+          "flex min-h-screen flex-col pt-6",
           "sm:px-12 lg:px-20 px-4 py-6"
         )}
       >
-        <ThemeProvider defaultTheme="light" enableColorScheme>
+        <ThemeProvider defaultTheme="dark" enableColorScheme>
           <Navbar
             refs={{
               "/": {

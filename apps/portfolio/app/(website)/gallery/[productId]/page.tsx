@@ -5,6 +5,7 @@ import { LinkButton } from "kd-ui/ui/button";
 import ProductIds from "../_lib/productIds";
 import { Metadata } from "next";
 import TypographySmall from "kd-ui/ui/typography/small";
+import TypographyP from "kd-ui/ui/typography/p";
 
 export async function generateMetadata(props: { params: Promise<{ productId: string }> }): Promise<Metadata | undefined> {
   const params = await props.params;
@@ -67,7 +68,7 @@ export default async function Page(
             width={asset.width}
             alt={description || "alt here"}
           />
-          {description}
+          <TypographyP>{description}</TypographyP>
         </div>
         <div className="place-self-end flex flex-col space-y-2">
             <LinkButton href="https://kridworks.etsy.com">Request for print</LinkButton>

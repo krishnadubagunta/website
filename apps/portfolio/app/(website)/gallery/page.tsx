@@ -69,7 +69,7 @@ export default async function Gallery(
     }
   );
   return (
-    <div className="pt-4 flex flex-col">
+    <div className="pt-6 flex flex-col">
       <H3 kaisei>gallery&nbsp;&nbsp;&nbsp;📸</H3>
       <div className="pt-6">
         <CameraFilters />

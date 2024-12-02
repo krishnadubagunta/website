@@ -4,15 +4,13 @@ import TypographyP from "kd-ui/ui/typography/p";
 import TypographySmall from "kd-ui/ui/typography/small";
 import Link from "next/link";
 import { Metadata } from "next";
-import { formatDate } from '../_lib/string'
 import { Badge } from "kd-ui/ui/badge";
-import Icon from 'kd-ui/ui/icon';
 import { db } from "@/db";
 import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "kd-ui/ui/card";
 import Image from "next/image";
 
-export const revalidate = 100;
+export const revalidate = 60000;
 
 interface Post {
     id: number;
@@ -38,7 +36,7 @@ export const metadata: Metadata = {
 
 export default async function Blog() {
     const posts = await db.query.blogTable.findMany({
-        orderBy: ({ pubDate, lastUpdated }, { desc }) => desc(pubDate) && desc(lastUpdated)
+        orderBy: ({ pubDate, lastUpdated }, { desc }) => [desc(pubDate), desc(lastUpdated)]
     })
 
     function CategoryComp({ categories }: { categories: string[] | null}) {

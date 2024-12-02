@@ -8,30 +8,9 @@
      · turbo
 
  [37m[1m [22m[39m Creating an optimized production build ...
-[31mFailed to compile.
-[39m
-./app/(marriage)/_lib/components/VideoPlayer/index.tsx
-[31m[1mModule not found[22m[39m: Can't resolve '[32mreact-player/file[39m'
-
-https://nextjs.org/docs/messages/module-not-found
-
-./app/(marriage)/_lib/components/VideoPlayer/index.tsx
-[31m[1mModule not found[22m[39m: Can't resolve '[32mreact-player/youtube[39m'
-
-https://nextjs.org/docs/messages/module-not-found
-
-./app/(marriage)/marriage/live/register/formSchema.tsx
-[31m[1mModule not found[22m[39m: Can't resolve '[32m@hookform/resolvers/zod[39m'
-
-https://nextjs.org/docs/messages/module-not-found
-
-./app/(marriage)/marriage/live/page.tsx
-[31m[1mModule not found[22m[39m: Can't resolve '[32m@vercel/kv[39m'
-
-https://nextjs.org/docs/messages/module-not-found
-
-
-> Build failed because of webpack errors
+ [31m[1m⨯[22m[39m Next.js can't recognize the exported `config` field in route "/(website)/blog/page":
+Unsupported node type "BinaryExpression" at "revalidate".
+Read More - https://nextjs.org/docs/messages/invalid-page-config
 [37;40mnpm[0m [0m[31;40mERR![0m [0m[35mLifecycle script `build` failed with error:[0m 
 [0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35mError: command failed[0m 
 [0m[37;40mnpm[0m [0m[31;40mERR![0m [0m[35m  in workspace: portfolio@0.1.0[0m 

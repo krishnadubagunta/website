@@ -6,6 +6,7 @@ export const blogTable = sqliteTable('blogs', {
     link: text("link").notNull().unique(),
     title: text("title").notNull(),
     description: text("description"),
+    image: text("image"),
     content: text("content"),
     pubDate: integer({ mode: 'timestamp' }).$defaultFn(() => new Date()),
     categories: blob({ mode: 'json' }).$type<string[]>(),

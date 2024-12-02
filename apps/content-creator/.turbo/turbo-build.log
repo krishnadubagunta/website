@@ -13,3 +13,5 @@
      · esmExternals
 
  [37m[1m [22m[39m Creating an optimized production build ...
+
+[1m[33mwarn[39m[22m - The utility `w-[calc(100%-theme('spacing[some_key][1.5]'))]` contains an invalid theme value and was not generated.

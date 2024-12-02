@@ -76,7 +76,7 @@ export default async function Gallery(
       </div>
       <div
         id="image-gallery"
-        className="pt-6 grid grid-cols-1 place-self-center sm:place-self-start sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2"
+        className="pt-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 place-self-center sm:place-self-start"
       >
         {photos.map((photo: any) => (
           <GalleryCard photo={photo} key={photo.sys.id} />

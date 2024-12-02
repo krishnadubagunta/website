@@ -18,11 +18,5 @@
   "private": true,
   "devDependencies": {
     "turbo": "^1.10.14"
-  },
-  "dependencies": {
-    "drizzle-orm": "^0.36.1",
-    "next-mdx-remote": "^5.0.0",
-    "remark-gfm": "^4.0.0",
-    "xmldom": "^0.6.0"
   }
 }

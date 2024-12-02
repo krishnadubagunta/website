@@ -25,6 +25,8 @@
     "react-dom": "19.0.0-rc-66855b96-20241106",
     "react-player": "^2.13.0",
     "rss-parser": "^3.13.0",
+    "next-mdx-remote": "^5.0.0",
+    "xmldom": "^0.6.0",
     "tailwindconfig": "*"
   },
   "devDependencies": {

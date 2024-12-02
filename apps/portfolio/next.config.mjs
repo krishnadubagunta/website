@@ -1,5 +1,4 @@
 import nextMdx from '@next/mdx';
-import remarkGfm from 'remark-gfm';
 
 
 const nextConfig = {
@@ -39,7 +38,7 @@ const nextConfig = {
 const withMDX = nextMdx({
   options: {
     rehypePlugins: [],
-    remarkPlugins: [remarkGfm]
+    remarkPlugins: []
   }
 })
 

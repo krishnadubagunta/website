@@ -51,38 +51,34 @@ export default async function Blog() {
         </div>
     }
 
-    return <div className="pt-6 flex flex-col space-y-4">
+    return <div className="container max-w-4xl py-6 lg:py-10">
       <TypographyH3 kaisei className="pb-6">read my blog</TypographyH3>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
-      {
-        posts.map((post) => <Link key={post.id} href={post.link} className="">
-          <Card className="flex flex-col justify-between hover:bg-muted h-full">
-        <CardHeader >
-            <Image
-              alt="Image of this blog post"
-              src={post.image!}
-              className="object-contain rounded-xl"
-              height={250}
-              width={450}
-              fetchPriority="auto"
-            />
-          <CardTitle>
-            <TypographyH4>
-              {post.title}
-            </TypographyH4>
-          </CardTitle>
-          <CardDescription>
-            <TypographyP>{ post.description?.substring(0, 150) + "..." }</TypographyP>
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="flex justify-between align-middle">
-          <TypographySmall>{ post.pubDate?.toDateString() }</TypographySmall>
-          <Link href={post.link}>
-            <ExternalLink height={16} />
-          </Link>
-        </CardContent>
-      </Card>
-        </Link>)}
+      <div className="grid gap-12 gap-y-16 sm:grid-cols-2">
+        {
+          posts.map((post) => <Link key={post.id} href={post.link}>
+            <article className="max-w-lg group relative flex flex-col space-y-4">
+              <Image
+                alt="Image of this blog post"
+                src={post.image!}
+                className="rounded-md border bg-muted transition-colors"
+                height={452}
+                width={804}
+                fetchPriority="high"
+                loading="lazy"
+              />
+              <TypographyH4>
+                {post.title}
+              </TypographyH4>
+              <TypographyP>{post.description?.substring(0, 150) + "..."}</TypographyP>
+              <div className="flex justify-between align-middle">
+                <TypographySmall>{post.pubDate?.toDateString()}</TypographySmall>
+                <Link href={post.link}>
+                  <ExternalLink height={16} />
+                </Link>
+              </div>
+          </article>
+          </Link>)
+        }
       </div>
     </div>
 }

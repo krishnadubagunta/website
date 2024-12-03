@@ -35,7 +35,7 @@ export default function Filter({ filterKey, filters }: { filterKey:string, filte
                         setFilteredItems([ ...filteredItems, filter ])
                     }
                 }} className={badgeVariants({ ...(findFilter(filter) ? { variant: 'default' } : { variant: 'outline' }) })}>
-                    <Small variant="light">{filter}</Small>
+                    <Small className="p-2" variant="light">{filter}</Small>
                 </button>)
             }
         </div>

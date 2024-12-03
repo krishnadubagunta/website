@@ -61,7 +61,7 @@ export const metadata: Metadata = {
 
 export default async function Home() {
   return (
-    <article className='pt-6 flex items-center'>
+    <article className='container max-w-4xl py-6 lg:py-10'>
       <Content />
     </article>
   )

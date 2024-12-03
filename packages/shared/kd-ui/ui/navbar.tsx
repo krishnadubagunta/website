@@ -69,9 +69,9 @@ export default function Navbar({
                         key={path}
                         href={path}
                         className={clsx(
-                          "transition-all hover:text-neutral-800 dark:hover:text-neutral-200 flex align-middle",
+                          "transition-all hover:text-muted-foreground/60 flex align-middle",
                           {
-                            "text-neutral-500 dark:text-neutral-400": !isActive,
+                            "text-muted-foreground": !isActive,
                           }
                         )}
                       >

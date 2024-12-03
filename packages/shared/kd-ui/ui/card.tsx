@@ -86,11 +86,11 @@ const PriceTag = ({ title, description, price}: {
 }) => (
   <div className="flex flex-col w-full relative pt-1 px-1 space-y-2">
     <div className="flex w-full items-start justify-between pr-1">
-      <Small className="text-ellipsis line-clamp-1 text-neutral-400 dark:text-neutral-600">{title}</Small>
+      <Small className="text-ellipsis line-clamp-1 text-foreground">{title}</Small>
       {/* {price && <Small className="text-neutral-500">{`$${price}`}</Small>} */}
     </div>
     <div className="flex w-full items-center justify-between">
-      {description && <Small className="text-xs text-neutral-400 dark:text-neutral-600 text-ellipsis line-clamp-1">{description}</Small>}
+      {description && <Small className="text-xs text-foreground/80 text-ellipsis line-clamp-1">{description}</Small>}
       {/* {price && <Button
         variant='link'
         className="text-petite-orchid-500 dark:text-petite-orchid-300 hover:text-petite-orchid-800 dark:hover:text-petite-orchid-400 px-2"

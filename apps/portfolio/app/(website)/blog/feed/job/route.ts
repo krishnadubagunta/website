@@ -1,6 +1,7 @@
 import { db } from "@/db";
 import { blogTable } from "@/db/schema";
 import { eq } from 'drizzle-orm';
+import { revalidatePath } from "next/cache";
 import { NextRequest, NextResponse } from "next/server";
 import Parser from 'rss-parser';
 import { DOMParser } from 'xmldom'
@@ -99,6 +100,7 @@ function getSubstackMetadata(feedPost: CustomItem): NewFeed {
 const domParser = new DOMParser();
 
 function createNewFeed(feedPost: CustomItem): NewFeed {
+  console.log("Generating feed for ", feedPost.title, feedPost["atom:updated"], feedPost.link);
   return feedPost.enclosure ? getSubstackMetadata(feedPost) : getMediumMetadata(feedPost);
 }
 
@@ -125,6 +127,6 @@ export async function GET(req: NextRequest) {
         return addResults
     })
 
-
+    revalidatePath("/blog", 'page')
     return NextResponse.json({ data: feedResults, ok: true })
 }

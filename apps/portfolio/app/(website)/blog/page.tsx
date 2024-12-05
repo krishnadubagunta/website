@@ -10,7 +10,7 @@ import { ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "kd-ui/ui/card";
 import Image from "next/image";
 
-export const revalidate = 60000;
+export const revalidate = 3600;
 
 interface Post {
     id: number;

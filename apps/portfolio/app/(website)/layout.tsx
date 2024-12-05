@@ -8,6 +8,7 @@ import Navbar from "kd-ui/ui/navbar";
 import { Analytics } from '@vercel/analytics/react'
 import clsx from "clsx";
 import { ReactNode } from "react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -46,6 +47,7 @@ export default function RootLayout({
           </main>
         </ThemeProvider>
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );

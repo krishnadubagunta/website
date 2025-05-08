@@ -40,6 +40,10 @@ export default function RootLayout({
                 matcher: ["/gallery?/*"],
                 name: "Gallery",
               },
+              "/resume": {
+                matcher: ["/resume?/*"],
+                name: "Resume",
+              },
             }}
           />
           <main>

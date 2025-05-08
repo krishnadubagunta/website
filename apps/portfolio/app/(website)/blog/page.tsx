@@ -64,7 +64,7 @@ export default async function Blog() {
                 height={452}
                 width={804}
                 fetchPriority="high"
-                loading="lazy"
+                priority={true}
               />
               <TypographyH4>
                 {post.title}
@@ -72,9 +72,7 @@ export default async function Blog() {
               <TypographyP>{post.description?.substring(0, 150) + "..."}</TypographyP>
               <div className="flex justify-between align-middle">
                 <TypographySmall>{post.pubDate?.toDateString()}</TypographySmall>
-                <Link href={post.link}>
-                  <ExternalLink height={16} />
-                </Link>
+                <ExternalLink height={16} />
               </div>
           </article>
           </Link>)

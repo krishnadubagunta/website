@@ -74,3 +74,34 @@
       --radius: 0.5rem; /* Keep the same radius as the light theme */
   }
 }
+
+@layer utilities {
+  .prose {
+    @apply text-foreground;
+  }
+  
+  .prose h1,
+  .prose h2,
+  .prose h3,
+  .prose h4,
+  .prose h5,
+  .prose h6 {
+    @apply text-foreground;
+  }
+  
+  .prose strong {
+    @apply text-foreground;
+  }
+  
+  .prose a {
+    @apply text-primary hover:text-primary/80;
+  }
+  
+  .prose blockquote {
+    @apply border-l-foreground/20 text-foreground/80;
+  }
+  
+  .prose code {
+    @apply text-foreground bg-muted px-1.5 py-0.5 rounded-md;
+  }
+}

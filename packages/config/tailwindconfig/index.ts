@@ -16,6 +16,13 @@ const config: Partial<Config> = {
       scale: {
         '102': '1.02'
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+          },
+        },
+      },
       colors: {
         'petite-orchid': {
           '50': 'hsl(10, 43%, 97%)',

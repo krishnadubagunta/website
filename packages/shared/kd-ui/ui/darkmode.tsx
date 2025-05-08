@@ -12,7 +12,7 @@ export default function DarkmodeToggle() {
   const resolvedIconName: IconProps['name'] = useMemo(() => darkMode ? 'moon' : 'sun', [darkMode])
   const oppositeTheme = useCallback((theme: string): string => theme === 'dark' ? 'light' : 'dark', [])
 
-  return <Toggle size={'sm'} aria-label="dark-mode" variant={'default'} defaultPressed={darkMode} onPressedChange={() => setTheme(oppositeTheme(resolvedTheme || 'dark'))}>
+  return <Toggle size={'sm'} aria-label="dark-mode" onPressedChange={() => setTheme(oppositeTheme(resolvedTheme || 'dark'))}>
       <Icon name={resolvedIconName} fillOpacity={0} strokeWidth={2} />
     </Toggle>
 }

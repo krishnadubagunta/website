@@ -41,7 +41,11 @@ export default function SiteNav({ refs }: { refs: NavRefs }) {
         "fixed inset-x-0 top-0 z-50 sm:px-12 lg:px-20 px-4 py-4 transition-colors duration-300",
         scrolled
           ? "bg-background/95 backdrop-blur-sm border-b border-border"
-          : "bg-transparent"
+          : // Over the hero photo, theme-driven nav colors don't have
+            // reliable contrast against arbitrary image content. Force a
+            // dark scrim + white text here regardless of theme; revert to
+            // normal theme colors once scrolled onto the solid background.
+            "bg-gradient-to-b from-black/60 via-black/25 to-transparent [&_*]:!text-white"
       )}
     >
       <Navbar refs={refs} />

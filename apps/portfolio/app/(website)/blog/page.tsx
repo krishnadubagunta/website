@@ -1,9 +1,9 @@
 import TypographyH3 from "kd-ui/ui/typography/h3";
-import TypographySmall from "kd-ui/ui/typography/small";
+import TypographyP from "kd-ui/ui/typography/p";
 import { Metadata } from "next";
-import { Badge } from "kd-ui/ui/badge";
 import { db } from "@/db";
-import BlogCard from "./_components/blog-card";
+import FeaturedPost from "./_components/featured-post";
+import PostRow from "./_components/post-row";
 
 export const revalidate = 3600;
 
@@ -21,24 +21,22 @@ export default async function Blog() {
         orderBy: ({ pubDate, lastUpdated }, { desc }) => [desc(pubDate), desc(lastUpdated)]
     })
 
-    function CategoryComp({ categories }: { categories: string[] | null}) {
-        if(!categories) return <></>
+    const [featured, ...rest] = posts;
 
-        return <div className="flex gap-2 pt-2">
-            {
-                categories.map(category => <Badge variant={'defaultNoInteraction'} className="bg-gray-400" key={category}>
-                    <TypographySmall>{category}</TypographySmall>
-                </Badge>)
-            }
+    return <div className="container max-w-3xl py-6 lg:py-10">
+      <div className="border-b border-border pb-8">
+        <TypographyH3 kaisei>read my blog</TypographyH3>
+        <TypographyP serif className="pt-2 text-muted-foreground">
+          Notes on software, and the landscapes I chase between deploys.
+        </TypographyP>
+      </div>
+      {featured ? (
+        <div className="pt-10">
+          <FeaturedPost post={featured} />
         </div>
-    }
-
-    return <div className="container max-w-4xl py-6 lg:py-10">
-      <TypographyH3 kaisei className="pb-8">read my blog</TypographyH3>
-      <div className="grid gap-x-12 gap-y-14 sm:grid-cols-2">
-        {
-          posts.map((post) => <BlogCard key={post.id} post={post} />)
-        }
+      ) : null}
+      <div className="flex flex-col">
+        {rest.map((post, i) => <PostRow key={post.id} post={post} index={i + 1} />)}
       </div>
     </div>
 }

@@ -1,10 +1,8 @@
 import H3 from "kd-ui/ui/typography/h3";
-import { CardImage } from "kd-ui/ui/card";
 import CameraFilters from "./_lib/components/cameraFilters";
 import Products from "./_lib/products";
-import Link from "next/link";
 import { Metadata } from "next";
-import Skeleton from "kd-ui/ui/skeleton";
+import GalleryCard from "./_components/gallery-card";
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.krishnadubagunta.com'),
@@ -38,24 +36,6 @@ export const metadata: Metadata = {
   }
 }
 
-function GalleryCard({ photo }: any) {
-  return (
-    <div className="">
-      <Link href={`/gallery/${photo.sys.id}`}>
-        <CardImage
-          src={photo.asset.url}
-          alt={photo.description || ""}
-          title={photo.title}
-          height={photo.asset.height}
-          width={photo.asset.width}
-          description={photo.description}
-          price="150"
-        />
-      </Link>
-    </div>
-  );
-}
-
 export default async function Gallery(
   props: {
     searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -74,10 +54,7 @@ export default async function Gallery(
       <div className="pt-6">
         <CameraFilters />
       </div>
-      <div
-        id="image-gallery"
-        className="pt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 place-self-center sm:place-self-start"
-      >
+      <div id="image-gallery" className="flex flex-col gap-16 pt-10 sm:gap-24">
         {photos.map((photo: any) => (
           <GalleryCard photo={photo} key={photo.sys.id} />
         ))}

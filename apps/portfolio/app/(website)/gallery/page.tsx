@@ -42,7 +42,7 @@ export default async function Gallery() {
   return (
     <div className="container max-w-4xl py-6 lg:py-10">
       <H3 kaisei>gallery&nbsp;&nbsp;&nbsp;📸</H3>
-      <div id="image-gallery" className="columns-2 gap-4 pt-10 sm:gap-6 md:columns-3">
+      <div id="image-gallery" className="grid grid-cols-2 pt-10 md:grid-cols-3">
         {photos.map((photo: any) => (
           <GalleryCard photo={photo} key={photo.sys.id} />
         ))}

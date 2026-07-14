@@ -18,7 +18,7 @@ export default function PostRow({ post, index }: { post: PostRowData; index: num
   return (
     <Link
       href={post.link}
-      className="group flex gap-6 border-b border-border py-8 first:pt-0"
+      className="group flex gap-6 border-b border-border py-8"
     >
       <span className="hidden font-serif text-3xl text-foreground/20 sm:block">
         {String(index).padStart(2, "0")}

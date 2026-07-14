@@ -38,7 +38,9 @@ export default function SiteNav({ refs }: { refs: NavRefs }) {
   return (
     <div
       className={clsx(
-        "fixed inset-x-0 top-0 z-50 sm:px-12 lg:px-20 px-4 py-4 transition-colors duration-300",
+        // pt-6 matches layout.tsx's non-home body padding so the nav sits
+        // at the same y-position on every route — no jump on navigation.
+        "fixed inset-x-0 top-0 z-50 sm:px-12 lg:px-20 px-4 pt-6 pb-4 transition-colors duration-300",
         scrolled
           ? "bg-background/95 backdrop-blur-sm border-b border-border"
           : // Over the hero photo, theme-driven nav colors don't have

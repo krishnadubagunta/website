@@ -1,0 +1,171 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+@source "../../../packages/shared/kd-ui";
+
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
+/*
+  Design tokens, ported from packages/shared/kd-ui/styles/global.css and
+  retuned for a Medium-style read: cards/background share the same fill so
+  dividers (not boxes) separate content, and borders are lower-contrast.
+*/
+[data-theme="light"] {
+  --background: 0 0% 100%;
+  --foreground: 20 14.3% 4.1%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 20 14.3% 4.1%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 20 14.3% 4.1%;
+
+  --primary: 6 48% 55%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 60 4.8% 95%;
+  --secondary-foreground: 20 14.3% 4.1%;
+
+  --muted: 60 4.8% 95%;
+  --muted-foreground: 20 5% 40%;
+
+  --accent: 60 4.8% 95%;
+  --accent-foreground: 20 14.3% 4.1%;
+
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 20 10% 90%;
+  --input: 20 10% 90%;
+  --ring: 20 14.3% 4.1%;
+
+  --radius: 0.5rem;
+}
+
+[data-theme="dark"] {
+  --background: 240 12% 8%;
+  --foreground: 210 20% 92%;
+
+  --card: 240 12% 8%;
+  --card-foreground: 210 20% 92%;
+
+  --popover: 240 15% 12%;
+  --popover-foreground: 210 20% 92%;
+
+  --primary: 200 70% 70%;
+  --primary-foreground: 240 12% 8%;
+
+  --secondary: 160 35% 55%;
+  --secondary-foreground: 210 20% 92%;
+
+  --muted: 220 15% 22%;
+  --muted-foreground: 210 15% 65%;
+
+  --accent: 300 45% 65%;
+  --accent-foreground: 210 20% 92%;
+
+  --destructive: 0 60% 55%;
+  --destructive-foreground: 210 20% 92%;
+
+  --border: 210 12% 20%;
+  --input: 210 12% 20%;
+  --ring: 210 20% 45%;
+
+  --radius: 0.5rem;
+}
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+
+  --color-petite-orchid-50: hsl(10 43% 97%);
+  --color-petite-orchid-100: hsl(4 53% 94%);
+  --color-petite-orchid-200: hsl(6 56% 89%);
+  --color-petite-orchid-300: hsl(5 53% 82%);
+  --color-petite-orchid-400: hsl(5 52% 70%);
+  --color-petite-orchid-500: hsl(6 48% 60%);
+  --color-petite-orchid-600: hsl(5 41% 51%);
+  --color-petite-orchid-700: hsl(5 42% 42%);
+  --color-petite-orchid-800: hsl(5 40% 35%);
+  --color-petite-orchid-900: hsl(5 36% 31%);
+  --color-petite-orchid-950: hsl(5 42% 15%);
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), ui-serif, Georgia, serif;
+
+  --scale-102: 1.02;
+
+  --animate-accordion-down: accordion-down 0.2s ease-out;
+  --animate-accordion-up: accordion-up 0.2s ease-out;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0px;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0px;
+  }
+}
+
+/* v4 no longer auto-centers/pads .container; restore prior behavior */
+@utility container {
+  margin-inline: auto;
+  padding-inline: 2rem;
+  max-width: 100%;
+
+  @variant sm {
+    max-width: 640px;
+  }
+  @variant md {
+    max-width: 768px;
+  }
+  @variant lg {
+    max-width: 1024px;
+  }
+  @variant xl {
+    max-width: 1280px;
+  }
+  @variant 2xl {
+    max-width: 1400px;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

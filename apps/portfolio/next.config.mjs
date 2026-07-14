@@ -3,7 +3,7 @@ import nextMdx from '@next/mdx';
 
 const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
-  transpilePackages: ["ui", "tailwindconfig", "lucide-react", "next-mdx-remote"],
+  transpilePackages: ["ui", "lucide-react", "next-mdx-remote"],
   images: {
     imageSizes: [16, 32, 48, 64, 96, 128, 256],
     remotePatterns: [

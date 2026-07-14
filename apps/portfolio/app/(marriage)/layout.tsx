@@ -1,4 +1,4 @@
-import "kd-ui/styles/global.css";
+import "../globals.css";
 import clsx from "clsx";
 import TypographyH1 from "kd-ui/ui/typography/h1";
 import { ReactNode } from "react";

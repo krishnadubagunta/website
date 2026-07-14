@@ -5,3 +5,4 @@ packages/shared/kd-ui/@/**/*
 .vercel
 .turbo
 .env.local
+.superpowers

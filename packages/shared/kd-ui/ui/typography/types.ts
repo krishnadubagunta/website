@@ -5,6 +5,7 @@ export type TypographyType = React.PropsWithChildren & {
     className?: string,
     kaisei?: boolean,
     paris?: boolean,
+    serif?: boolean,
     variant?: 'light' | 'medium' | 'thin' | 'default'
 }
 
@@ -12,6 +13,7 @@ interface TT extends ReactChildren {
     // className?: string,
     kaisei?: boolean,
     paris?: boolean,
+    serif?: boolean,
     variant?: 'light' | 'medium' | 'thin' | 'default'
 }
 

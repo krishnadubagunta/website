@@ -16,7 +16,8 @@
   "author": "Krishna Dubagunta <dubagunta.saikrishna@outlook.com>",
   "license": "MIT",
   "private": true,
+  "packageManager": "npm@11.11.0",
   "devDependencies": {
-    "turbo": "^1.10.14"
+    "turbo": "^2.10.1"
   }
 }

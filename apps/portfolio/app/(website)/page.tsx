@@ -1,5 +1,11 @@
 import { Metadata } from 'next'
-import Content from './content.mdx'
+import { db } from '@/db'
+import Hero from './_components/hero'
+import BioSocials from './_components/bio-socials'
+import TopicCards from './_components/topic-cards'
+import LatestPosts from './_components/latest-posts'
+
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.krishnadubagunta.com'),
@@ -60,9 +66,17 @@ export const metadata: Metadata = {
 }
 
 export default async function Home() {
+  const posts = await db.query.blogTable.findMany({
+    orderBy: ({ pubDate, lastUpdated }, { desc }) => [desc(pubDate), desc(lastUpdated)],
+    limit: 3,
+  });
+
   return (
-    <article className='container max-w-4xl py-6 lg:py-10'>
-      <Content />
-    </article>
-  )
+    <>
+      <Hero />
+      <BioSocials />
+      <TopicCards />
+      <LatestPosts posts={posts} />
+    </>
+  );
 }

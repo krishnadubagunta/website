@@ -1,12 +1,13 @@
 import { Metadata } from "next";
+import { Download } from "lucide-react";
 import Content from "./content.mdx";
 
 export const metadata: Metadata = {
     title: "Sai Krishna Dubagunta's Resume",
-    description: "Results-driven Principal Consultant Architect with over 8 years of extensive experience designing and delivering high-performance, scalable full-stack solutions. Expert in frontend technologies (ReactJS, NextJS, Angular) and backend development (Java, Golang, Ruby, Python, Node.js). Proven success in API design, microservices architecture, performance optimization, and team leadership. Passionate about mentoring engineering teams and driving business outcomes through technology innovation.",
+    description: "Full-stack software engineer and principal consultant architect with 9+ years of experience designing and delivering scalable, high-performance systems across cloud, microservices, and AI-integrated platforms. Proven across the full stack in Golang, Rust, Zig, TypeScript, and Ruby, with deep expertise in API design, system optimization, and engineering leadership.",
     openGraph: {
         title: "Sai Krishna Dubagunta's Resume",
-        description: 'Results-driven Principal Consultant Architect with over 8 years of extensive experience designing and delivering high-performance, scalable full-stack solutions. Expert in frontend technologies (ReactJS, NextJS, Angular) and backend development (Java, Golang, Ruby, Python, Node.js). Proven success in API design, microservices architecture, performance optimization, and team leadership. Passionate about mentoring engineering teams and driving business outcomes through technology innovation.',
+        description: 'Full-stack software engineer and principal consultant architect with 9+ years of experience designing and delivering scalable, high-performance systems across cloud, microservices, and AI-integrated platforms. Proven across the full stack in Golang, Rust, Zig, TypeScript, and Ruby, with deep expertise in API design, system optimization, and engineering leadership.',
         url: 'https://www.krishnadubagunta.com/resume',
         type: 'profile',
         gender: 'male',
@@ -34,7 +35,16 @@ export const metadata: Metadata = {
 export default function Resume() {
   return (<>
     <main className="pt-6 flex flex-col items-center gap-4">
-        <article className="prose prose-sm dark:prose-invert w-full max-w-2xl">
+        <article className="relative w-full max-w-2xl pb-16">
+            <a
+                href="/resume.pdf"
+                download
+                aria-label="Download résumé as PDF"
+                title="Download résumé as PDF"
+                className="absolute right-0 top-1 text-muted-foreground transition-colors hover:text-foreground"
+            >
+                <Download className="h-5 w-5" />
+            </a>
             <Content />
         </article>
     </main>

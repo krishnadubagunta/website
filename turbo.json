@@ -1,9 +1,8 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "pipeline": {
+  "tasks": {
     "build": {
       "cache": true,
-      "outputMode": "full",
       "dependsOn": ["^build"],
       "outputs": [".next/**", "!.next/cache/**", "public/resume.pdf"],
       "env": [
@@ -18,7 +17,8 @@
       ]
     },
     "dev": {
-      "cache": false
+      "cache": false,
+      "persistent": true
     }
   }
 }

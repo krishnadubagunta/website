@@ -34,7 +34,7 @@ export const metadata: Metadata = {
 export default function Resume() {
   return (<>
     <main className="pt-6 flex flex-col items-center gap-4">
-        <article className="prose prose-sm dark:prose-invert w-full max-w-2xl">
+        <article className="w-full max-w-2xl pb-16">
             <Content />
         </article>
     </main>

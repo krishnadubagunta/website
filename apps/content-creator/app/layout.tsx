@@ -52,7 +52,7 @@ export default async function RootLayout({
           <Navbar
             refs={{
               "/": {
-                matcher: ["/medias", "/socials"],
+                matcher: ["/medias", "/socials", "/resume"],
                 name: "Dashboard",
               },
               "/new/media": {
@@ -80,7 +80,7 @@ export default async function RootLayout({
             <Navbar
               refs={{
                 "/": {
-                  matcher: ["/medias", "/socials"],
+                  matcher: ["/medias", "/socials", "/resume"],
                   name: "Dashboard",
                 },
                 "/new/media": {

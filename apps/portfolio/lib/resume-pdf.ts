@@ -1,21 +1,13 @@
-// Builds public/resume.pdf from app/(website)/resume/content.mdx at build
-// time, so the downloadable PDF always matches the page content. Runs the
-// raw MDX through @mdx-js/mdx (no kd-ui component mapping needed — we just
-// want plain h1/h2/h3/p/ul/li/strong/a tags to walk), renders to static
-// HTML, then lays that out into a PDF with jsPDF.
+// Renders resume markdown (the same MDX-ish content stored in the `resume`
+// table) into a downloadable PDF. Ported from the old build-time
+// scripts/generate-resume-pdf.mjs so it can run per-request from the
+// /resume/pdf route instead of needing a rebuild to pick up edits.
 import { evaluate } from "@mdx-js/mdx";
 import * as runtime from "react/jsx-runtime";
 import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
-import { readFile, writeFile, mkdir } from "node:fs/promises";
-import { fileURLToPath } from "node:url";
-import path from "node:path";
 import { load } from "cheerio";
 import { jsPDF } from "jspdf";
-
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const CONTENT_PATH = path.join(__dirname, "../app/(website)/resume/content.mdx");
-const OUT_PATH = path.join(__dirname, "../public/resume.pdf");
 
 const MARGIN = 48;
 const PAGE_WIDTH = 612; // letter, pt
@@ -23,43 +15,42 @@ const PAGE_HEIGHT = 792;
 const CONTENT_WIDTH = PAGE_WIDTH - MARGIN * 2;
 
 // jsPDF's default (WinAnsi/Helvetica) encoding drops or mis-renders several
-// characters this content actually uses — sanitize to safe ASCII equivalents
+// characters this content actually uses - sanitize to safe ASCII equivalents
 // rather than embedding a custom Unicode font for a handful of glyphs.
-const CHAR_REPLACEMENTS = [
+const CHAR_REPLACEMENTS: [RegExp, string][] = [
   [/[–—]/g, "-"], // en/em dash
   [/→/g, "->"], // right arrow
   [/[‘’]/g, "'"], // curly single quotes
   [/[“”]/g, '"'], // curly double quotes
 ];
-const sanitize = (text) =>
+const sanitize = (text: string) =>
   CHAR_REPLACEMENTS.reduce((acc, [pattern, replacement]) => acc.replace(pattern, replacement), text);
 
-async function main() {
-  const source = await readFile(CONTENT_PATH, "utf8");
-  const { default: Content } = await evaluate(source, {
+export async function generateResumePdf(markdown: string): Promise<Buffer> {
+  const { default: Content } = await evaluate(markdown, {
     ...runtime,
     Fragment: runtime.Fragment,
-  });
-  const html = renderToStaticMarkup(React.createElement(Content));
+  } as any);
+  const html = renderToStaticMarkup(React.createElement(Content as any));
   const $ = load(html);
 
   const doc = new jsPDF({ unit: "pt", format: "letter" });
   let y = MARGIN;
 
-  const ensureSpace = (needed) => {
+  const ensureSpace = (needed: number) => {
     if (y + needed > PAGE_HEIGHT - MARGIN) {
       doc.addPage();
       y = MARGIN;
     }
   };
 
-  // Splits an inline node's children into text/link runs (one level deep —
+  // Splits an inline node's children into text/link runs (one level deep -
   // matches this resume's actual markup, no deeper nesting to handle).
-  const inlineRuns = (node, bold = false) => {
-    const runs = [];
+  const inlineRuns = (node: any, bold = false): { text: string; bold: boolean; href?: string }[] => {
+    const runs: { text: string; bold: boolean; href?: string }[] = [];
     $(node)
       .contents()
-      .each((_, child) => {
+      .each((_, child: any) => {
         if (child.type === "text") {
           const text = sanitize($(child).text());
           if (text.trim()) runs.push({ text, bold, href: undefined });
@@ -72,9 +63,9 @@ async function main() {
     return runs;
   };
 
-  // Renders a single line of mixed text/link runs (no wrapping — used only
+  // Renders a single line of mixed text/link runs (no wrapping - used only
   // for short lines: contact info, job/project subtitle lines).
-  const writeInlineLine = (runs, fontSize) => {
+  const writeInlineLine = (runs: { text: string; bold: boolean; href?: string }[], fontSize: number) => {
     ensureSpace(fontSize + 4);
     doc.setFontSize(fontSize);
     let x = MARGIN;
@@ -92,7 +83,7 @@ async function main() {
 
   // Renders a wrapped bullet: an optional bold "label:" prefix followed by
   // word-wrapped plain text, jsPDF has no native mixed-style wrapping.
-  const writeBullet = (label, text, fontSize = 10, lineHeight = 14) => {
+  const writeBullet = (label: string | null, text: string, fontSize = 10, lineHeight = 14) => {
     ensureSpace(lineHeight);
     doc.setFontSize(fontSize);
     const bulletX = MARGIN + 10;
@@ -108,7 +99,7 @@ async function main() {
 
     doc.setFont("helvetica", "normal");
     const words = text.split(" ");
-    const lines = [];
+    const lines: string[] = [];
     let current = "";
     let widthBudget = maxWidth - labelWidth;
     for (const word of words) {
@@ -137,7 +128,7 @@ async function main() {
     y += lineHeight;
   };
 
-  const writeParagraph = (text, fontSize = 10, lineHeight = 14) => {
+  const writeParagraph = (text: string, fontSize = 10, lineHeight = 14) => {
     doc.setFont("helvetica", "normal");
     doc.setFontSize(fontSize);
     const lines = doc.splitTextToSize(text, CONTENT_WIDTH);
@@ -153,7 +144,7 @@ async function main() {
   let sawFirstParagraph = false;
 
   for (const el of children) {
-    const tag = el.tagName;
+    const tag = (el as any).tagName;
 
     if (tag === "h1") {
       ensureSpace(28);
@@ -165,7 +156,7 @@ async function main() {
     }
 
     if (tag === "p" && !sawFirstParagraph) {
-      // The contact-info line right after the h1 — render with real links.
+      // The contact-info line right after the h1 - render with real links.
       sawFirstParagraph = true;
       writeInlineLine(inlineRuns(el), 10);
       y += 6;
@@ -228,13 +219,6 @@ async function main() {
     }
   }
 
-  await mkdir(path.dirname(OUT_PATH), { recursive: true });
   const bytes = doc.output("arraybuffer");
-  await writeFile(OUT_PATH, Buffer.from(bytes));
-  console.log(`Generated ${path.relative(process.cwd(), OUT_PATH)} (${bytes.byteLength} bytes)`);
+  return Buffer.from(bytes);
 }
-
-main().catch((error) => {
-  console.error("Failed to generate resume PDF:", error);
-  process.exit(1);
-});

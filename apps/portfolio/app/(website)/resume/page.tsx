@@ -1,6 +1,13 @@
 import { Metadata } from "next";
 import { Download } from "lucide-react";
-import Content from "./content.mdx";
+import { evaluate } from "@mdx-js/mdx";
+import * as runtime from "react/jsx-runtime";
+import { db } from "@/db";
+import { resumeTable } from "@/db/schema";
+import { eq } from "drizzle-orm";
+import { useMDXComponents } from "@/mdx-components";
+
+export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
     title: "Sai Krishna Dubagunta's Resume",
@@ -32,7 +39,19 @@ export const metadata: Metadata = {
     },
 }
 
-export default function Resume() {
+export default async function Resume() {
+  const [row] = await db
+    .select()
+    .from(resumeTable)
+    .where(eq(resumeTable.id, 1))
+    .limit(1);
+
+  const { default: Content } = await evaluate(row.content, {
+    ...runtime,
+    Fragment: runtime.Fragment,
+    useMDXComponents,
+  } as any);
+
   return (<>
     <main className="pt-6 flex flex-col items-center gap-4">
         <article className="relative w-full max-w-2xl pb-16">

@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@auth/mongodb-adapter": "^3.7.3",
+    "@libsql/client": "^0.14.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "db": "*",
+    "drizzle-orm": "^0.36",
     "framer-motion": "^10.16.0",
     "kd-ui": "*",
     "lodash": "^4.17.21",

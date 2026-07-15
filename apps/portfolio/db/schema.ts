@@ -15,3 +15,12 @@ export const blogTable = sqliteTable('blogs', {
     lastUpdated: integer({ mode: 'timestamp' }),
     enclosure: blob({ mode: 'json' }).$type<{ url: string, length: string, type: string }>()
 })
+
+// Single active row (id 1) holding the current resume as MDX-ish markdown
+// text, edited from content-creator and rendered live by the resume page
+// and the on-demand PDF route - no build/redeploy needed to pick up edits.
+export const resumeTable = sqliteTable('resume', {
+    id: integer("id").primaryKey(),
+    content: text("content").notNull(),
+    updatedAt: integer({ mode: 'timestamp' }).notNull().$defaultFn(() => new Date()),
+})

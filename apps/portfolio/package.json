@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev -p 4001",
-    "build": "node scripts/generate-resume-pdf.mjs && next build",
+    "build": "next build",
     "start": "next start -p 4001",
     "lint": "next lint",
-    "generate-resume-pdf": "node scripts/generate-resume-pdf.mjs"
+    "seed-resume": "node scripts/seed-resume.mjs"
   },
   "dependencies": {
     "@libsql/client": "^0.14.0",

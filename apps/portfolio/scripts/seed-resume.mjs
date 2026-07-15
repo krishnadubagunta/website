@@ -1,4 +1,26 @@
-# Sai Krishna Dubagunta
+// One-time seed: inserts the resume content that used to live in
+// app/(website)/resume/content.mdx (now retired) as row id=1 of the
+// `resume` table, so the DB-backed resume page/PDF route have something to
+// render immediately after the migration is applied. Safe to delete once
+// it's been run once against the target Turso DB - re-running just
+// overwrites row 1 with the same text.
+import { config } from "dotenv";
+import { drizzle } from "drizzle-orm/libsql";
+import { sql } from "drizzle-orm";
+import { text, sqliteTable, integer } from "drizzle-orm/sqlite-core";
+
+config({ path: ".env.local" });
+
+// Inlined rather than imported from ../db/schema.ts: this is a plain-node
+// script (no TS loader configured for scripts/), and it's a one-time seed
+// so a duplicated table shape here is simpler than wiring one up.
+const resumeTable = sqliteTable("resume", {
+  id: integer("id").primaryKey(),
+  content: text("content").notNull(),
+  updatedAt: integer({ mode: "timestamp" }).notNull(),
+});
+
+const CONTENT = `# Sai Krishna Dubagunta
 +1 862-237-4645 | [dubagunta.saikrishna@outlook.com](mailto:dubagunta.saikrishna@outlook.com) | [LinkedIn](https://linkedin.com/in/saikrishnadubagunta) | [GitHub](https://github.com/krishnadubagunta)
 
 ## Professional Summary
@@ -97,3 +119,28 @@ Full-stack software engineer and principal consultant architect with 9+ years of
 * Exhibited landscape photography at Bridgeport Art Center, Chicago; featured Fujifilm photographer on Instagram.
 * Contributed to a project that received national media coverage on Cheddar News.
 * Writes on software engineering, career development, and technology via Personal Blog, Substack, and Medium.
+`;
+
+async function main() {
+  const db = drizzle({
+    connection: {
+      url: process.env.TURSO_URL,
+      authToken: process.env.TURSO_TOKEN,
+    },
+  });
+
+  await db
+    .insert(resumeTable)
+    .values({ id: 1, content: CONTENT, updatedAt: new Date() })
+    .onConflictDoUpdate({
+      target: resumeTable.id,
+      set: { content: sql`excluded.content`, updatedAt: sql`excluded."updatedAt"` },
+    });
+
+  console.log("Seeded resume table (id=1).");
+}
+
+main().catch((error) => {
+  console.error("Failed to seed resume:", error);
+  process.exit(1);
+});

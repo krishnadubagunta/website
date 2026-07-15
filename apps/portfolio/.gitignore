@@ -15,9 +15,6 @@
 # production
 /build
 
-# generated at build time by scripts/generate-resume-pdf.mjs
-/public/resume.pdf
-
 # misc
 .DS_Store
 *.pem

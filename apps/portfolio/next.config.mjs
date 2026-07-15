@@ -33,6 +33,14 @@ const nextConfig = {
   experimental: {
     mdxRs: true
   },
+  async rewrites() {
+    return [
+      {
+        source: "/resume.pdf",
+        destination: "/resume/pdf",
+      },
+    ];
+  },
 };
 
 const withMDX = nextMdx({

@@ -13,6 +13,7 @@ export default function ContentLayout(
   props: {
       medias: React.ReactNode;
       socials: React.ReactNode;
+      resume: React.ReactNode;
       params: Promise<{ segment: string }>;
     }
 ) {
@@ -24,7 +25,8 @@ export default function ContentLayout(
 
   const {
     medias,
-    socials
+    socials,
+    resume
   } = props;
 
   const router = useRouter();
@@ -39,9 +41,10 @@ export default function ContentLayout(
           onValueChange={(value) => router.push(`/${value}`)}
         >
           <div className="flex justify-between">
-            <TabsList className="grid w-4/12 grid-cols-2 transition-transform">
+            <TabsList className="grid w-6/12 grid-cols-3 transition-transform">
               <TabsTrigger value={"medias"}>Media</TabsTrigger>
               <TabsTrigger value={"socials"}>Socials</TabsTrigger>
+              <TabsTrigger value={"resume"}>Resume</TabsTrigger>
             </TabsList>
             <Button onClick={() => router.push("/new/media")}>
                 <div className="flex justify-center items-center">
@@ -62,6 +65,13 @@ export default function ContentLayout(
             <Card>
               <CardContent className="p-4">
                 { socials }
+              </CardContent>
+            </Card>
+          </TabsContent>
+          <TabsContent value="resume">
+            <Card>
+              <CardContent className="p-4">
+                { resume }
               </CardContent>
             </Card>
           </TabsContent>

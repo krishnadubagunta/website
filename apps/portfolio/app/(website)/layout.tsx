@@ -19,8 +19,8 @@ const NAV_REFS = {
     name: "Home",
   },
   "/blog": {
-    matcher: ["/blog?/*"],
     name: "Blog",
+    external: true,
   },
   "/gallery": {
     matcher: ["/gallery?/*"],

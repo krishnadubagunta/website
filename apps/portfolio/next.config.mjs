@@ -33,6 +33,20 @@ const nextConfig = {
   experimental: {
     mdxRs: true
   },
+  async redirects() {
+    return [
+      {
+        source: "/blog",
+        destination: "https://blog.krishnadubagunta.com",
+        permanent: true,
+      },
+      {
+        source: "/blog/:path*",
+        destination: "https://blog.krishnadubagunta.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 const withMDX = nextMdx({

@@ -18,7 +18,7 @@ const NAV_REFS = {
   "/": {
     name: "Home",
   },
-  "/blog": {
+  "https://blog.krishnadubagunta.com": {
     name: "Blog",
     external: true,
   },

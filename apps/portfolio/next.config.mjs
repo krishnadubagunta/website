@@ -28,6 +28,9 @@ const nextConfig = {
       {
         hostname: "fonts.gstatic.com",
       },
+      {
+        hostname: "blog.krishnadubagunta.com",
+      },
     ],
   },
   experimental: {

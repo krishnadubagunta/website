@@ -2,6 +2,8 @@ import { Metadata } from 'next'
 import Hero from './_components/hero'
 import BioSocials from './_components/bio-socials'
 import TopicCards from './_components/topic-cards'
+import LatestPosts from './_components/latest-posts'
+import { getLatestPosts } from '@/lib/ghost'
 
 export const revalidate = 3600;
 
@@ -63,12 +65,15 @@ export const metadata: Metadata = {
   }
 }
 
-export default function Home() {
+export default async function Home() {
+  const posts = await getLatestPosts(3);
+
   return (
     <>
       <Hero />
       <BioSocials />
       <TopicCards />
+      <LatestPosts posts={posts} />
     </>
   );
 }
